@@ -1,0 +1,13 @@
+.c-masthead {
+  @include respond-to("small") {
+    padding: 2.875rem 0;
+  }
+
+  .l-container {
+    @include respond-to("small") {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.c-mainNav {
+  ul {
+    @include respond-to("small") {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  li {
+    @include respond-to("small") {
+      margin-left: 3rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  a {
+    font-size: 16px;
+    color: $color--text;
+    line-height: 1.75rem;
+  }
+}
