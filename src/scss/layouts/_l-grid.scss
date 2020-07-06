@@ -1,0 +1,7 @@
+.l-grid {
+  @include respond-to("small") {
+    align-items: stretch;
+    display: flex;
+    justify-content: space-between;
+  }
+}

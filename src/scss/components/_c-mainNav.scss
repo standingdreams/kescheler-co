@@ -1,4 +1,10 @@
 .c-mainNav {
+  display: none;
+
+  @include respond-to("small") {
+    display: block;
+  }
+
   ul {
     @include respond-to("small") {
       align-items: center;
@@ -18,8 +24,36 @@
   }
 
   a {
-    font-size: 16px;
     color: $color--text;
+    font-size: 16px;
     line-height: 1.75rem;
+    position: relative;
+    padding: 0.75em 0;
+
+    &::after {
+      background-color: transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 58px;
+    }
+
+    &:hover {
+      &::after {
+        background-color: #d189bc;
+      }
+    }
+
+    &:focus {
+      outline: none;
+
+      &::after {
+        background-color: $color--outline;
+      }
+    }
   }
 }

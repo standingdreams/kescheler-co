@@ -27,9 +27,12 @@ body {
   }
 }
 
-p {
+p,
+li {
+  font-size: 1.125em;
   font-weight: 300;
   margin: 1.2em 0 0;
+  line-height: 1.888888889em;
 
   &:first-child {
     margin-top: 0;
