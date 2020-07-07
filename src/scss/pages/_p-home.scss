@@ -130,7 +130,7 @@
     }
   }
 
-  &__aboutAgency {
+  &__creativity {
     margin: 0 auto;
     max-width: 1920px;
 
@@ -224,5 +224,9 @@
         text-transform: uppercase;
       }
     }
+  }
+
+  &__aboutAgency {
+    margin-top: 10rem;
   }
 }

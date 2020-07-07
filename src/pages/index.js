@@ -53,21 +53,21 @@ const IndexPage = () => (
         </div>
       </div>
     </section>
-    <section className="p-home__aboutAgency">
+    <section className="p-home__creativity">
       <div className="l-container">
-        <figure className="p-home__aboutAgencyImage">
-          <div className="p-home__aboutAgencyImageInfo">
-            <span className="p-home__aboutAgencyImageHeading el-h2">25 Years</span>
-            <span className="p-home__aboutAgencyImageSubHeading">Creativity For You</span>
+        <figure className="p-home__creativityImage">
+          <div className="p-home__creativityImageInfo">
+            <span className="p-home__creativityImageHeading el-h2">25 Years</span>
+            <span className="p-home__creativityImageSubHeading">Creativity For You</span>
           </div>
         </figure>
-        <div className="p-home__aboutAgencyContent">
+        <div className="p-home__creativityContent">
           <div className="o-block">
             <h2 className="o-block__heading el-h2">We're an experienced and very creative branding agency</h2>
             <p>Build on a culture of contribution and inclusion is a lot of persent cross-pollination, nor closing these latest prospects is like putting socks on an octopus, yet circle back. We need to make the new version clean and sexy critical mass.</p>
-            <div className="p-home__aboutAgencyOwner">
+            <div className="p-home__creativityOwner">
               <img src="/owner-signature.svg" alt="Owner Signature"/>
-              <h3 className="p-home__aboutAgencyOwnerHeading el-h5">
+              <h3 className="p-home__creativityOwnerHeading el-h5">
                 Michelle Geralldiny
                 <span>Art Director</span>
               </h3>
