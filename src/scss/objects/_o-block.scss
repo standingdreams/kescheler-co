@@ -10,8 +10,13 @@
       display: block;
       font-size: 14px;
       font-weight: $regular;
-      line-height: 1.75;
       letter-spacing: 0;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+
+      &::before {
+        content: "\2014";
+      }
     }
   }
 }

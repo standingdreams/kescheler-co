@@ -23,7 +23,7 @@ const IndexPage = () => (
       <div className="l-container">
         <header class="p-home__provideSolutionsHeader">
           <h2 className="o-block__heading el-h2">
-            <span>&mdash; Provide Solutions</span>
+            <span>Provide Solutions</span>
             Digital web products for amazing and successful customers.
           </h2>
           <a href="/" className="el-btn el-btn--outline p-home__provideSolutionsCTA">Order Now</a>
@@ -72,6 +72,27 @@ const IndexPage = () => (
                 <span>Art Director</span>
               </h3>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="p-home__aboutAgency">
+      <div className="l-container">
+        <div className="o-block">
+          <h2 className="o-block__heading el-h2">
+            <span>About agency</span>
+            We work with a spark creating the best quality products.
+          </h2>
+          <p>On this journey rehydrate the team pre launch disband the squad but rehydrate as needed but we need to aspirationalise our offerings. Bench mark that's mint, well done but roll back strategy we need a recap by eod, cob or whatever comes first for products need full resourcing...</p>
+        </div>
+        <div className="p-home__aboutAgencyPoints">
+          <div className="p-home__aboutAgencyPointsItem">
+            <h3 className="p-home__aboutAgencyPointsItemHeading el-h4">Our Philosophy</h3>
+            <p>We want to empower the team with the right tools and sales are at an all-time clear water build better.</p>
+          </div>
+          <div className="p-home__aboutAgencyPointsItem">
+            <h3 className="p-home__aboutAgencyPointsItemHeading el-h4">Our Mission</h3>
+            <p>Going forward gain traction, nor ultimate measure of success so work.</p>
           </div>
         </div>
       </div>

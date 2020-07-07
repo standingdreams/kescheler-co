@@ -5,11 +5,23 @@
     position: relative;
 
     @include respond-to("small") {
+      padding: 15.2rem 0 0;
+    }
+
+    @include respond-to("medium") {
       padding: 35.2rem 0;
     }
 
     .l-container {
       max-width: 1140px;
+
+      @include respond-to("small") {
+        padding-bottom: 15.2rem;
+      }
+
+      @include respond-to("medium") {
+        padding-bottom: 0;
+      }
     }
   }
 
@@ -27,9 +39,15 @@
   &__infoCard {
     color: $color--white;
     margin-top: 8rem;
+    border-top: 15px solid $color--pink;
 
     @include respond-to("small") {
+      margin-top: 0;
+    }
+
+    @include respond-to("medium") {
       align-items: stretch;
+      border-top: 0;
       display: flex;
       justify-content: flex-end;
       bottom: 0;
@@ -228,5 +246,45 @@
 
   &__aboutAgency {
     margin-top: 10rem;
+
+    @include respond-to("small") {
+      margin-top: 20rem;
+    }
+
+    .l-container {
+      @include respond-to("large") {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .o-block {
+      @include respond-to("small") {
+        margin-right: 8%;
+        max-width: 555px;
+      }
+    }
+
+    &Points {
+      margin-top: 3.4rem;
+    }
+
+    &PointsItem {
+      margin-top: 5rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    &PointsItemHeading {
+      font-weight: $medium;
+      letter-spacing: -1px;
+    }
   }
 }
