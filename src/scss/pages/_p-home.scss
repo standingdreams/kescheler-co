@@ -14,7 +14,7 @@
   }
 
   &__content {
-    @include respond-to("small") {
+    @include respond-to("medium") {
       width: 60%;
     }
   }
@@ -45,83 +45,184 @@
       flex-shrink: 0;
       width: 390px;
     }
-  }
 
-  &__infoCardContent {
-    background-color: #1c1c1c;
-    padding: 48px;
-  }
+    &Content {
+      background-color: $color--heather-grey;
+      padding: 48px;
+    }
 
-  &__infoCardTag {
-    color: #acacac;
-    font-size: 0.75em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+    &CardTag {
+      color: #acacac;
+      font-size: 0.75em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-  &__infoCardHeading {
-    font-weight: $medium;
+    &CardHeading {
+      font-weight: $medium;
+    }
   }
 
   &__provideSolutions {
-    padding: 150px 0;
-  }
+    padding: 8rem 0;
 
-  &__provideSolutionsHeader {
     @include respond-to("small") {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-
-  &__provideSolutionsSubheader {
-    font-weight: $medium;
-    letter-spacing: -1px;
-    position: relative;
-  }
-
-  &__provideSolutionsNum {
-    border-radius: 52px;
-    border: 2px solid #e6e8eb;
-    font-size: 20px;
-    font-weight: $semibold;
-    left: 0;
-    line-height: 48px;
-    position: absolute;
-    text-align: center;
-    top: -8px;
-    width: 52px;
-  }
-
-  &__provideSolutionsHeading {
-    font-family: $semibold;
-    font-size: 36px;
-    color: #1c1c1c;
-    letter-spacing: -1px;
-    line-height: 1.33em;
-    max-width: 65.2rem;
-  }
-
-  &__provideSolutionsGrid {
-    margin-top: 100px;
-    padding-top: 40px;
-    position: relative;
-
-    &::before {
-      background-color: $color--yellow;
-      content: "";
-      display: block;
-      height: 2px;
-      left: 65px;
-      position: absolute;
-      top: 0;
-      width: 260px;
+      padding: 15rem 0;
     }
 
-    .l-grid__col {
-      padding-left: 65px;
+    &Header {
+      @include respond-to("medium") {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &Subheader {
+      font-weight: $medium;
+      letter-spacing: -1px;
       position: relative;
+    }
+
+    &Num {
+      border-radius: 52px;
+      border: 2px solid #e6e8eb;
+      font-size: 20px;
+      font-weight: $semibold;
+      left: 0;
+      line-height: 48px;
+      position: absolute;
+      text-align: center;
+      top: -8px;
+      width: 52px;
+    }
+
+    .o-block__heading {
+      @include respond-to("small") {
+        max-width: 65.2rem;
+      }
+    }
+
+    &CTA {
+      margin-top: 3rem;
+    }
+
+    &Grid {
+      margin-top: 100px;
+      padding-top: 40px;
+      position: relative;
+
+      &::before {
+        background-color: $color--yellow;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 65px;
+        position: absolute;
+        top: 0;
+        width: 260px;
+      }
+
+      .l-grid__col {
+        padding-left: 65px;
+        position: relative;
+      }
+    }
+  }
+
+  &__aboutAgency {
+    margin: 0 auto;
+    max-width: 1920px;
+
+    .l-container {
+      margin: 0 auto;
+      max-width: 848px;
+
+      @include respond-to("large") {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+        max-width: 1530px;
+      }
+    }
+
+    &Image {
+      background-color: #e6e8eb;
+      display: block;
+      flex-shrink: 0;
+      height: 350px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+
+      @include respond-to("large") {
+        height: 565px;
+        width: 55%;
+      }
+    }
+
+    &ImageInfo {
+      background-color: $color--heather-grey;
+      padding: 32px 48px;
+      text-align: center;
+      display: inline-block;
+      position: absolute;
+      bottom: -50px;
+      right: 24px;
+    }
+
+    &ImageHeading {
+      color: $color--white;
+      font-weight: $semibold;
+      letter-spacing: -1px;
+      line-height: 48px;
+      display: block;
+    }
+
+    &ImageSubHeading {
+      color: #acacac;
+      display: block;
+      font-size: 12px;
+      letter-spacing: 1px;
+      line-height: 18px;
+      text-transform: uppercase;
+    }
+
+    &Content {
+      margin-top: 10rem;
+
+      @include respond-to("large") {
+        margin-left: 8%;
+        margin-top: 0;
+      }
+    }
+
+    &Owner {
+      margin-top: 6.4rem;
+
+      @include respond-to("xlarge") {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+          order: 2;
+        }
+      }
+    }
+
+    &OwnerHeading {
+      order: 1;
+
+      span {
+        color: #acacac;
+        display: block;
+        font-size: 12px;
+        letter-spacing: 1px;
+        line-height: 18px;
+        text-transform: uppercase;
+      }
     }
   }
 }

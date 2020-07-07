@@ -4,4 +4,53 @@
     display: flex;
     justify-content: space-between;
   }
+
+  &__col {
+    margin-top: 5rem;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    @include respond-to("small") {
+      margin-left: 4.8rem;
+    }
+  }
+
+  &--3 {
+    @include respond-to("small") {
+      flex-wrap: wrap;
+    }
+
+    @include respond-to("medium") {
+      flex-wrap: nowrap;
+    }
+
+    .l-grid__col {
+      @include respond-to("small") {
+        width: calc(50% - 4.8rem);
+
+        &:nth-child(-n + 2) {
+          margin-top: 0;
+        }
+
+        &:nth-child(2n + 1) {
+          margin-left: 0;
+        }
+      }
+
+      @include respond-to("medium") {
+        margin-top: 0;
+        width: 33.3%;
+
+        &:nth-child(2n + 1) {
+          margin-left: 4.8rem;
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
 }
