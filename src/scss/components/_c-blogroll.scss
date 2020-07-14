@@ -1,0 +1,57 @@
+.c-blogroll {
+  padding: 15rem 0;
+
+  &__post {
+    @extend .o-block;
+    border-bottom: 1px solid $color--light-grey;
+    max-width: 75rem;
+    padding-bottom: 6.4rem;
+  }
+
+  &__heading {
+    font-weight: $semibold;
+    line-height: 1.333333333em;
+
+    span {
+      font-weight: $regular;
+      color: #40434e;
+      display: block;
+    }
+  }
+
+  &__meta {
+    margin-top: 3.2rem;
+
+    @include respond-to("small") {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__author {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__authorImage {
+    background-color: $color--light-grey;
+    border-radius: 40px;
+    display: block;
+    height: 40px;
+    overflow: hidden;
+    width: 40px;
+    margin-right: 1em;
+  }
+
+  &__postDetails {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+
+    span {
+      margin-left: 3.2rem;
+    }
+  }
+}
