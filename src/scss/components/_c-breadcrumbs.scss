@@ -1,0 +1,38 @@
+.c-breadcrumbs {
+  background-color: #e6e8eb;
+  padding: 6.4rem 0;
+
+  ul {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  li {
+    font-size: 14px;
+    margin-left: 0.75rem;
+
+    &::before {
+      content: "/";
+      margin-right: 0.75rem;
+      display: inline-block;
+    }
+
+    &:first-child {
+      margin-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &:last-child a {
+      font-weight: $semibold;
+    }
+  }
+
+  a {
+    color: $color--heather-grey;
+    text-transform: uppercase;
+  }
+}
