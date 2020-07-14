@@ -1,30 +1,44 @@
+// h1 = 80px
+// h2 = 36px
+// h3 = 24px
+// h4 = 16px
+// small = 12px
+
 .el {
   &-h1 {
     font-weight: $semibold;
-    font-size: 2.1875em;
+    font-size: 2.25em; // 35px
     color: $color--heather-grey;
     letter-spacing: -1px;
     line-height: 1.125em;
 
     @include respond-to("small") {
-      font-size: 5em;
+      font-size: 5em; // 80px
     }
   }
 
   &-h2 {
-    font-size: 1.5em;
+    font-size: 1.5em; // 24px
 
     @include respond-to("small") {
-      font-size: 2.25em;
+      font-size: 2.25em; // 36px
     }
   }
 
-  &-h4 {
-    font-size: 1.5em;
+  &-h3 {
+    font-size: 1.5em; // 24px
+    line-height: 1.5em;
   }
 
-  &-h5 {
-    font-size: 1em;
+  &-h4 {
+    font-size: 1em; // 16px
     font-weight: $regular;
+  }
+
+  &-small {
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    text-transform: uppercase;
   }
 }
