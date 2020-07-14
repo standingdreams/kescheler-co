@@ -1,21 +1,115 @@
 .c-blogroll {
-  padding: 15rem 0;
+  padding: 8rem 0;
+
+  @include respond-to("small") {
+    padding: 15rem 0;
+  }
 
   &__post {
     @extend .o-block;
     border-bottom: 1px solid $color--light-grey;
-    max-width: 75rem;
     padding-bottom: 6.4rem;
+    margin-top: 6.4rem;
+    display: grid;
+    grid-template-columns: 105px 5% 65% 1fr;
+    grid-auto-rows: auto;
+    align-items: start;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include respond-to("small") {
+      grid-template-columns: 105px 8% 65% 1fr;
+    }
+  }
+
+  &__postImage {
+    margin-bottom: 3.2rem;
+    grid-column: 1 / span end;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 200px;
+
+      @include respond-to("small") {
+        height: 450px;
+      }
+    }
+  }
+
+  &__header {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    @include respond-to("small") {
+      justify-content: flex-start;
+    }
+  }
+
+  date {
+    background-color: $color--dusty-blue;
+    color: rgba(230, 232, 235, 0.75);
+    display: block;
+    flex-shrink: 0;
+    letter-spacing: 1px;
+    line-height: 1em;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    grid-column: 1 / span 1;
+
+    span {
+      color: #ffffff;
+      display: block;
+      font-size: 30px;
+      font-weight: $semibold;
+      letter-spacing: -1px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    @include respond-to("small") {
+      font-size: 14px;
+      padding: 2.5rem 0;
+      width: 105px;
+
+      span {
+        font-size: 40px;
+      }
+    }
+  }
+
+  &__postContent {
+    max-width: 75rem;
+    grid-column: 1 / span end;
+    margin-top: 30px;
+
+    @include respond-to("small") {
+      grid-column: 3;
+    }
   }
 
   &__heading {
     font-weight: $semibold;
     line-height: 1.333333333em;
+    grid-column: 3;
+
+    a {
+      color: $color--text;
+    }
 
     span {
       font-weight: $regular;
       color: #40434e;
       display: block;
+    }
+
+    @include respond-to("small") {
+      grid-column-start: 3;
     }
   }
 
@@ -33,6 +127,7 @@
     align-items: center;
     display: flex;
     justify-content: flex-start;
+    font-size: 1em;
   }
 
   &__authorImage {
@@ -40,18 +135,53 @@
     border-radius: 40px;
     display: block;
     height: 40px;
+    margin-right: 1em;
     overflow: hidden;
     width: 40px;
-    margin-right: 1em;
   }
 
   &__postDetails {
+    margin-top: 20px;
     align-items: center;
     display: flex;
-    justify-content: flex-end;
 
     span {
       margin-left: 3.2rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    @include respond-to("small") {
+      justify-content: flex-end;
+    }
+  }
+
+  &__postComments,
+  &__postLike {
+    &::before {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 16px;
+      margin-right: 8px;
+      vertical-align: middle;
+      width: 16px;
+    }
+  }
+
+  &__postComments {
+    &::before {
+      background-image: url("/comment-solid.svg");
+    }
+  }
+
+  &__postLike {
+    &::before {
+      background-image: url("/heart-solid.svg");
     }
   }
 }

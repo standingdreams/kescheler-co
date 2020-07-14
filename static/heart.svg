@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>heart</title>
+    <g id="Main-Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="16" font-weight="normal" line-spacing="16">
+        <g id="15_Blog_Without_Sidebar" transform="translate(-1267.000000, -1571.000000)" fill="#1C1C1C">
+            <g id="Body" transform="translate(390.000000, 420.000000)">
+                <g id="Post2_Txt/HOVER" transform="translate(0.000000, 919.000000)">
+                    <g id="Txt" transform="translate(195.000000, 0.000000)">
+                        <g id="Like/LIKED" transform="translate(682.000000, 231.000000)">
+                            <text id="heart">
+                                <tspan x="0" y="14"></tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
