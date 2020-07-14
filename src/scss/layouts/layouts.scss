@@ -1,5 +1,13 @@
 @import "l-grid";
 
+.l-section {
+  margin-top: 8.5rem;
+
+  @include respond-to("small") {
+    margin-top: 15rem;
+  }
+}
+
 .l-container {
   margin: 0 auto;
   max-width: 1140px;

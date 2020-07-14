@@ -76,7 +76,7 @@ const IndexPage = () => (
         </div>
       </div>
     </section>
-    <section className="p-home__aboutAgency">
+    <section className="p-home__aboutAgency l-section">
       <div className="l-container">
         <div className="o-block">
           <h2 className="o-block__heading el-h2">
