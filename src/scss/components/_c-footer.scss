@@ -1,0 +1,156 @@
+.c-footer {
+  background-color: $color--heather-grey;
+  color: #fff;
+  padding-top: 15rem;
+
+  a {
+    color: #ffffff;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  &__block {
+    padding-top: 9rem;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    @include respond-to("small") {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 15rem;
+    }
+
+    &Item {
+      margin-top: 3.2rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      @include respond-to("small") {
+        margin-top: 0;
+      }
+
+      &--2,
+      &--3 {
+        max-width: 555px;
+
+        @include respond-to("small") {
+          width: 49%;
+        }
+      }
+
+      &--3 {
+        @include respond-to("medium") {
+          align-items: center;
+          display: flex;
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+
+  &__contactInfo {
+    margin-top: 6.3rem;
+    display: block;
+  }
+
+  &__nav {
+    ul {
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    li {
+      margin-left: 4.8rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    a {
+      position: relative;
+      padding-bottom: 1.5rem;
+
+      &::after {
+        background-color: $color--pink;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 58px;
+      }
+    }
+  }
+
+  &__social {
+    background-color: $color--dusty-blue;
+    order: 1;
+    padding: 3.2rem 4.8rem;
+
+    ul {
+      align-items: stretch;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    li {
+      margin-left: 2.4rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    a {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: block;
+      height: 28px;
+      overflow: hidden;
+      text-indent: -10000%;
+      transition: all 0.15s ease-in-out;
+      width: 28px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.-facebook {
+        background-image: url("/facebook.svg");
+      }
+      &.-twitter {
+        background-image: url("/twitter.svg");
+      }
+      &.-instagram {
+        background-image: url("/instagram.svg");
+      }
+      &.-linkedin {
+        background-image: url("/linkedin.svg");
+      }
+    }
+  }
+
+  &__disclaimer {
+    display: inline-block;
+    font-size: 0.7em;
+    order: 2;
+    margin-bottom: 1.5rem;
+
+    @include respond-to("medium") {
+      margin-bottom: 0;
+      margin-left: 8%;
+    }
+  }
+}

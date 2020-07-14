@@ -19,4 +19,31 @@
       }
     }
   }
+
+  &__btn {
+    margin-top: 3.2rem;
+  }
+
+  &__content {
+    margin-top: 3.2rem;
+
+    &--split {
+      @include respond-to("small") {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+
+        p {
+          width: 60%;
+          margin: 0 8% 0 0;
+        }
+      }
+    }
+
+    .o-block__btn {
+      @include respond-to("small") {
+        margin: 0;
+      }
+    }
+  }
 }

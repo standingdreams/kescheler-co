@@ -201,10 +201,6 @@
     &ImageSubHeading {
       color: #acacac;
       display: block;
-      font-size: 12px;
-      letter-spacing: 1px;
-      line-height: 18px;
-      text-transform: uppercase;
     }
 
     &Content {
@@ -236,17 +232,11 @@
       span {
         color: #acacac;
         display: block;
-        font-size: 12px;
-        letter-spacing: 1px;
-        line-height: 18px;
-        text-transform: uppercase;
       }
     }
   }
 
   &__aboutAgency {
-    margin-top: 10rem;
-
     @include respond-to("small") {
       margin-top: 20rem;
     }
@@ -285,6 +275,306 @@
     &PointsItemHeading {
       font-weight: $medium;
       letter-spacing: -1px;
+    }
+  }
+
+  &__testimonial {
+    .l-container {
+      max-width: 1920px;
+      width: 100%;
+
+      @include respond-to("small") {
+        align-items: flex-end;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    &Content {
+      background-color: $color--heather-grey;
+      color: $color--white;
+      flex-shrink: 0;
+      padding: 6.4rem;
+      position: relative;
+
+      @include respond-to("small") {
+        margin-top: 8rem;
+        padding: 6.4rem 5% 6% 5%;
+        width: 55%;
+      }
+
+      @include respond-to("large") {
+        padding-left: 20%;
+      }
+    }
+
+    &ContentReviewer {
+      color: #ffffff;
+      font-size: 1em;
+      font-weight: $regular;
+      line-height: 1.75em;
+
+      span {
+        color: #acacac;
+        display: block;
+      }
+    }
+
+    &ImageWrap {
+      flex-shrink: 0;
+      width: 100%;
+
+      @include respond-to("small") {
+        max-width: 848px;
+        width: 45%;
+      }
+    }
+
+    &Image {
+      background-color: #e6e8eb;
+      display: block;
+      width: 100%;
+      height: 450px;
+    }
+
+    &SliderNumber {
+      bottom: 16px;
+      color: #ffffff;
+      position: absolute;
+      right: 5%;
+    }
+
+    &Pagination {
+      align-items: stretch;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+
+  &__services {
+    .l-container {
+      @include respond-to("small") {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .o-block {
+      max-width: 458px;
+      margin-bottom: 5rem;
+
+      @include respond-to("small") {
+        margin-bottom: 0;
+        order: 2;
+      }
+    }
+
+    &List {
+      max-width: 450px;
+
+      @include respond-to("small") {
+        order: 1;
+      }
+
+      ul {
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+      }
+    }
+  }
+
+  &__creativeWorks {
+    .l-container {
+      @include respond-to("small") {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .o-block {
+      width: 360px;
+      flex-shrink: 0;
+      margin-right: 8%;
+    }
+
+    &Arrows {
+      margin-top: 6.4rem;
+    }
+
+    &Slider {
+      position: relative;
+
+      ul {
+        align-items: stretch;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        background-color: #e6e8eb;
+        height: 450px;
+        margin: 0 0 0 30px;
+        padding: 0;
+        width: 360px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &CTA {
+      position: absolute;
+      left: 0;
+      bottom: 24px;
+    }
+  }
+
+  &__blog {
+    &List {
+      margin-top: 6.4rem;
+    }
+
+    &ItemHeading {
+      a {
+        color: $color--heather-grey;
+      }
+    }
+
+    &ItemCTA {
+      margin-top: 6.4rem;
+    }
+
+    &Item {
+      background-color: $color--white;
+      border: 1px solid #e6e8eb;
+      padding: 4.8rem;
+      position: relative;
+      transition: all 0.15s ease-in-out;
+
+      date {
+        background-color: $color--heather-grey;
+        bottom: 0;
+        color: $color--white;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: rgba(230, 232, 235, 0.75);
+        letter-spacing: 1px;
+        line-height: 1em;
+
+        span {
+          color: #ffffff;
+          display: block;
+          font-size: 24px;
+          font-weight: $medium;
+          letter-spacing: -1px;
+          line-height: 1;
+          text-align: center;
+        }
+
+        &:hover {
+          background-color: $color--pink;
+        }
+      }
+
+      @include respond-to("small") {
+        &:hover {
+          background-color: $color--heather-grey;
+
+          .p-home__blogItemCTA::after {
+            background-image: url("/long-arrow-alt-right-white.svg");
+          }
+
+          .p-home__blogItemHeading a,
+          .p-home__blogItemCTA,
+          p {
+            color: $color--white;
+          }
+        }
+      }
+    }
+  }
+
+  &__videoArea {
+    .l-container {
+      @include respond-to("small") {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .o-block {
+      @include respond-to("small") {
+        max-width: 458px;
+        order: 2;
+        width: 40%;
+      }
+    }
+
+    &Content {
+      @include respond-to("small") {
+        max-width: 55.5rem;
+        order: 1;
+        width: 48%;
+      }
+    }
+
+    &Item {
+      margin-top: 11.2rem;
+      position: relative;
+
+      .l-container {
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 10;
+      }
+
+      button {
+        background-color: $color--heather-grey;
+        background-image: url("/play-btn.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 60px auto;
+        display: block;
+        height: 145px;
+        left: 0;
+        position: absolute;
+        top: -72.5px;
+        width: 165px;
+        z-index: 10;
+
+        &:hover {
+          background-color: $color--pink;
+        }
+      }
+
+      iframe {
+        width: 100%;
+        height: 1148px;
+      }
     }
   }
 }

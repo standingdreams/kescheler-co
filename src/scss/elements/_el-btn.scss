@@ -1,5 +1,4 @@
 .el-btn {
-  color: $color--heather-grey;
   font-weight: $semibold;
   line-height: 18px;
   transition: all 0.15s ease-in-out;
@@ -10,13 +9,105 @@
     outline: none;
   }
 
+  &--focus {
+    transition: all 0.15s ease-in-out;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $color--outline;
+      outline: none;
+    }
+  }
+
   &--outline {
     border: 1px solid $color--dark-grey;
+    color: $color--heather-grey;
     padding: 14px 48px;
 
     &:hover {
       background-color: $color--dark-grey;
       color: $color--white;
+    }
+  }
+
+  &--solid {
+    display: inline-block;
+    padding: 14px 48px;
+    font-size: 1.25em;
+  }
+
+  &--solid-grey {
+    @extend .el-btn--solid;
+    background-color: $color--heather-grey;
+    color: $color--white;
+
+    &:hover {
+      background-color: rgba($color--heather-grey, 0.9);
+    }
+  }
+
+  &--solid-purple {
+    @extend .el-btn--solid;
+    background-color: $color--dusty-blue;
+    color: $color--white;
+
+    &:hover {
+      background-color: rgba($color--dusty-blue, 0.9);
+    }
+  }
+
+  &__arrow {
+    background-color: $color--heather-grey;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 18px auto;
+    height: 50px;
+    overflow: hidden;
+    text-indent: -10000%;
+    transition: all 0.15s ease-in-out;
+    width: 50px;
+
+    &--left {
+      background-image: url("/chevron-left-solid.svg");
+    }
+
+    &--right {
+      background-image: url("/chevron-right-solid.svg");
+    }
+
+    &:hover {
+      background-color: $color--pink;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px $color--outline;
+      outline: none;
+    }
+  }
+
+  &__linkArrow {
+    color: $color--heather-grey;
+    position: relative;
+
+    &::after {
+      background-image: url("/long-arrow-alt-right-black.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 16px;
+      margin-left: 1em;
+      transform: translateX(0);
+      transition: all 0.15s ease-in-out;
+      vertical-align: middle;
+      width: 16px;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url("/long-arrow-alt-right-white.svg");
+        transform: translateX(20%);
+      }
     }
   }
 }

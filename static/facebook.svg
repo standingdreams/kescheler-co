@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>facebook</title>
+    <defs>
+        <path d="M15.873238,24 L15.873238,14.877729 L18.9937569,14.877729 L19.4619267,11.3215632 L15.873238,11.3215632 L15.873238,9.05146997 C15.873238,8.02219945 16.1634454,7.32076396 17.6699481,7.32076396 L19.5882353,7.31999046 L19.5882353,4.13922998 C19.2564945,4.09694532 18.1177456,4 16.7923597,4 C14.0247426,4 12.1299822,5.65696569 12.1299822,8.69926969 L12.1299822,11.3215632 L9,11.3215632 L9,14.877729 L12.1299822,14.877729 L12.1299822,24 L15.873238,24 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sections/Footer" transform="translate(-1058.000000, -586.000000)">
+            <g id="Social" transform="translate(958.000000, 554.000000)">
+                <g id="facebook" transform="translate(100.000000, 32.000000)">
+                    <rect id="bg" x="0" y="0" width="28" height="28"></rect>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

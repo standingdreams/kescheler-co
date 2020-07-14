@@ -11,6 +11,9 @@
 // );
 
 $breakpoints: (
+  "smallest": (
+    max-width: 767px,
+  ),
   "small": (
     min-width: 767px,
   ),
