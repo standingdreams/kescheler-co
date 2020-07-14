@@ -1,8 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Header from "./header"
 import SEO from "../components/seo"
+import Header from "./header"
+import Footer from "../components/footer"
+
 import "./../scss/styles.scss"
 
 const Layout = props => {
@@ -14,6 +16,7 @@ const Layout = props => {
       <SEO title={ title } />
       <Header />
       <main>{children}</main>
+      <Footer/>
     </>
   )
 }
