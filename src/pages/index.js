@@ -211,7 +211,7 @@ const IndexPage = () => (
       <div className="p-home__videoAreaItem">
         <iframe title="videoAreaItem" src="https://www.youtube.com/embed/Y4Z7Ds_yv8o" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         <div className="l-container">
-          <button className="el-btn--focus"></button>
+          <button className="el-btn__empty">Play</button>
         </div>
       </div>
     </section>

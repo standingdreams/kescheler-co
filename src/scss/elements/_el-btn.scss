@@ -55,6 +55,11 @@
     }
   }
 
+  &__empty {
+    @extend .el-btn--focus;
+    text-indent: -10000%;
+  }
+
   &__arrow {
     background-color: $color--heather-grey;
     background-position: center;
