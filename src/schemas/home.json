@@ -66,5 +66,214 @@
         "label": "Masthead Background Image"
       }
     }
+  },
+  "Heading + Columns": {
+    "solutions_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Section Title"
+      }
+    },
+    "solutions_section_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Section Heading"
+      }
+    },
+    "solutions_cta_copy": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "CTA Copy"
+      }
+    },
+    "solutions_section_columns": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "column_heading": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Column Heading"
+            }
+          },
+          "column_copy": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph, strong, em, hyperlink",
+              "allowTargetBlank": true,
+              "label": "Column Copy"
+            }
+          }
+        },
+        "label": "Section Columns"
+      }
+    }
+  },
+  "Image + Heading + Author": {
+    "author_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Section Title"
+      }
+    },
+    "author_section_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Heading"
+      }
+    },
+    "author_section_copy": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Section Copy"
+      }
+    },
+    "author_section_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Author Section Image"
+      }
+    },
+    "author": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Author"
+      }
+    },
+    "author_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Author Title"
+      }
+    },
+    "author_sig": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Author Signature"
+      }
+    }
+  },
+  "About Agency": {
+    "about_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Section Title"
+      }
+    },
+    "about_section_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Section Heading"
+      }
+    },
+    "about_section_copy": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Section Copy"
+      }
+    },
+    "about_columns": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "about_col_heading": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Heading"
+            }
+          },
+          "about_column_copy": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph, strong, em, hyperlink",
+              "allowTargetBlank": true,
+              "label": "Column Copy"
+            }
+          }
+        },
+        "label": "Section Columns"
+      }
+    }
+  },
+  "Testimonials": {
+    "testimonial_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Section Title"
+      }
+    },
+    "testimonial_items": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "attestant": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Attestant"
+            }
+          },
+          "attestant_title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Attestant Title"
+            }
+          },
+          "testimonial_copy": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, strong, em, hyperlink",
+              "allowTargetBlank": true,
+              "label": "Testimonial Copy"
+            }
+          }
+        },
+        "label": "Testimonials"
+      }
+    }
+  },
+  "Services": {
+    "services_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Section Title"
+      }
+    },
+    "services_section_copy": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Section Copy"
+      }
+    },
+    "services_list": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "list-item",
+        "label": "Services List"
+      }
+    }
   }
 }

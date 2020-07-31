@@ -6,6 +6,14 @@
   @include respond-to("small") {
     margin-top: 15rem;
   }
+
+  &--bottom {
+    margin-bottom: 8.5rem;
+
+    @include respond-to("small") {
+      margin-bottom: 15rem;
+    }
+  }
 }
 
 .l-container {

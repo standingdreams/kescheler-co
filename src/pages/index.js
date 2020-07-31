@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image } = allPrismicHome.edges[0].node.data
+  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title } = allPrismicHome.edges[0].node.data
   console.log([ page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image ]);
 
   return (
@@ -29,39 +29,27 @@ const IndexPage = () => {
         <div className="l-container">
           <header className="p-home__provideSolutionsHeader">
             <h2 className="o-block__heading el-h2">
-              <span>Provide Solutions</span>
-              Digital web products for amazing and successful customers.
+              <span>{solutions_section_title.text}</span>
+              {solutions_section_heading.text}
             </h2>
-            <a href="/" className="el-btn el-btn--outline-grey p-home__provideSolutionsCTA">Order Now</a>
+            <a href="/" className="el-btn el-btn--outline-grey p-home__provideSolutionsCTA">{solutions_cta_copy.text}</a>
           </header>
           <div className="p-home__provideSolutionsGrid l-grid l-grid--3">
-            <div className="l-grid__col">
-              <span className="p-home__provideSolutionsNum">1</span>
-              <h3 className="l-grid__heading el-h3 p-home__provideSolutionsSubheader">
-                Creative Ideas
-              </h3>
-              <p>Pdio amet dapibus tristique mus placerat pharetra nullam.</p>
-            </div>
-            <div className="l-grid__col">
-              <span className="p-home__provideSolutionsNum">2</span>
-              <h3 className="l-grid__heading el-h3 p-home__provideSolutionsSubheader">
-                Constructive Work
-              </h3>
-              <p>Praesent malesuada est iaculis duis mollis auctor feugiat integer natoque commodo</p>
-            </div>
-            <div className="l-grid__col">
-              <span className="p-home__provideSolutionsNum">3</span>
-              <h3 className="l-grid__heading el-h3 p-home__provideSolutionsSubheader">
-                Market Research
-              </h3>
-              <p>Praesent odio amet dapibus tristique mus placerat pharetra nullam.</p>
-            </div>
+            {solutions_section_columns.map((col, index) => (
+              <div className="l-grid__col" key={`solutions-col-${index + 1}`}>
+                <span className="p-home__provideSolutionsNum">{ index + 1 }</span>
+                <h3 className="l-grid__heading el-h3 p-home__provideSolutionsSubheader">
+                  {col.column_heading.text}
+                </h3>
+                <p>{col.column_copy.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
       <section className="p-home__creativity">
         <div className="l-container">
-          <figure className="p-home__creativityImage">
+          <figure className="p-home__creativityImage" style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
             <div className="p-home__creativityImageInfo">
               <span className="p-home__creativityImageHeading el-h2">25 Years</span>
               <span className="p-home__creativityImageSubHeading el-small">Creativity For You</span>
@@ -114,7 +102,9 @@ const IndexPage = () => {
             <span className="p-home__testimonialSliderNumber el-small">01/04</span>
           </div>
           <div className="p-home__testimonialImageWrap">
-            <figure className="p-home__testimonialImage"></figure>
+            <figure className="p-home__testimonialImage">
+              <img src={ masthead_background_image.url } alt=""/>
+            </figure>
             <nav className="p-home__testimonialPagination">
               <button className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--left">Prev</button>
               <button className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--right">Next</button>
@@ -122,7 +112,7 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
-      <section className="p-home__services l-section">
+      <section className="p-home__services l-section l-section--bottom">
         <div className="l-container">
           <div className="o-block">
             <h2 className="o-block__heading el-h3">
@@ -145,7 +135,7 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
-      <section className="p-home__creativeWorks l-section">
+      {/* <section className="p-home__creativeWorks l-section">
         <div className="l-container">
           <div className="o-block">
             <h2 className="o-block__heading el-h2">
@@ -220,7 +210,7 @@ const IndexPage = () => {
             <button className="el-btn__empty">Play</button>
           </div>
         </div>
-      </section>
+      </section> */}
     </Layout>
   )
 }
@@ -254,6 +244,24 @@ const HOME_QUERY = graphql`
             }
             masthead_background_image {
               url
+            }
+            solutions_section_title {
+              text
+            }
+            solutions_section_heading {
+              text
+            }
+            solutions_cta_copy {
+              text
+            }
+            solutions_section_columns {
+              column_heading {
+                text
+              }
+              column_copy {
+                text
+                html
+              }
             }
           }
         }

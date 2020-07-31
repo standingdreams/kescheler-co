@@ -1,5 +1,9 @@
 .c-masthead {
   padding: 2.875rem 0;
+  background-color: $color--white;
+  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 20;
 
   .l-container {
     max-width: 1820px;
