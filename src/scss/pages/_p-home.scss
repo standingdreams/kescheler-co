@@ -1,19 +1,39 @@
 .p-home {
   &__banner {
+    background-image: url("/adam-solomon-WHUDOzd5IYU-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: $color--light-grey;
     padding: 10rem 0 0;
     position: relative;
+
+    &::after {
+      background-color: rgba($color--dark-grey, 0.9);
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
 
     @include respond-to("small") {
       padding: 15.2rem 0 0;
     }
 
     @include respond-to("medium") {
-      padding: 35.2rem 0;
+      padding: 25.2rem 0;
     }
 
     .l-container {
       max-width: 1140px;
+      position: relative;
+      z-index: 2;
 
       @include respond-to("small") {
         padding-bottom: 15.2rem;
@@ -25,7 +45,13 @@
     }
   }
 
+  &__mastheadCopy {
+    margin-top: 1.2em;
+  }
+
   &__content {
+    color: $color--white;
+
     @include respond-to("medium") {
       width: 60%;
     }
@@ -40,6 +66,8 @@
     color: $color--white;
     margin-top: 8rem;
     border-top: 15px solid $color--pink;
+    position: relative;
+    z-index: 2;
 
     @include respond-to("small") {
       margin-top: 0;
@@ -468,7 +496,7 @@
       position: relative;
       transition: all 0.15s ease-in-out;
 
-      date {
+      &Date {
         background-color: $color--heather-grey;
         bottom: 0;
         color: $color--white;

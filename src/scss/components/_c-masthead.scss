@@ -3,11 +3,33 @@
 
   .l-container {
     max-width: 1820px;
+    position: relative;
+    z-index: 20;
 
     @include respond-to("small") {
       align-items: center;
       display: flex;
       justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    background-color: $color--white;
+    display: block;
+    padding: 20px 50px;
+    width: 200px;
+    z-index: 21;
+
+    @include respond-to("small") {
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
     }
   }
 }

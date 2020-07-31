@@ -9,7 +9,7 @@ import "./../scss/styles.scss"
 
 const Layout = props => {
   const children = props.children
-  const [ title ] = props
+  const { title } = props
 
   return (
     <>

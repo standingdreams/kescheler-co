@@ -19,14 +19,7 @@
   }
 
   &--outline {
-    border: 1px solid $color--dark-grey;
-    color: $color--heather-grey;
     padding: 14px 48px;
-
-    &:hover {
-      background-color: $color--dark-grey;
-      color: $color--white;
-    }
   }
 
   &--solid {
@@ -35,8 +28,12 @@
     font-size: 1.25em;
   }
 
-  &--solid-grey {
+  &--solid-grey,
+  &--solid-purple {
     @extend .el-btn--solid;
+  }
+
+  &--solid-grey {
     background-color: $color--heather-grey;
     color: $color--white;
 
@@ -46,12 +43,36 @@
   }
 
   &--solid-purple {
-    @extend .el-btn--solid;
     background-color: $color--dusty-blue;
     color: $color--white;
 
     &:hover {
       background-color: rgba($color--dusty-blue, 0.9);
+    }
+  }
+
+  &--outline-grey,
+  &--outline-white {
+    @extend .el-btn--outline;
+  }
+
+  &--outline-grey {
+    border: 1px solid $color--dark-grey;
+    color: $color--heather-grey;
+
+    &:hover {
+      background-color: $color--dark-grey;
+      color: $color--white;
+    }
+  }
+
+  &--outline-white {
+    border: 1px solid $color--white;
+    color: $color--white;
+
+    &:hover {
+      background-color: $color--white;
+      color: $color--heather-grey;
     }
   }
 

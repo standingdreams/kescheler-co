@@ -5,8 +5,8 @@ const Header = () => (
   <header className="c-masthead">
     <div className="l-container">
       <h1>
-        <Link to="/">
-          <img src="/lpardo.svg" alt="Kescheler and Co. logo"/>
+        <Link className="c-masthead__logo" to="/">
+          <img src="/logo-black.svg" alt="Kescheler and Co. logo"/>
         </Link>
       </h1>
       <nav className="c-mainNav">
