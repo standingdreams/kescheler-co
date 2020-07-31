@@ -1,0 +1,59 @@
+{
+  "Main": {
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Page Title"
+      }
+    },
+    "masthead_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Masthead Heading"
+      }
+    },
+    "masthead_copy": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink, embed, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Masthead Copy"
+      }
+    },
+    "cta_block": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "cta_copy": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "CTA Copy"
+            }
+          },
+          "cta_link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "CTA Link"
+            }
+          },
+          "cta_button_style": {
+            "type": "Select",
+            "config": {
+              "options": [
+                "Button",
+                "Unstyled Link"
+              ],
+              "default_value": "Button",
+              "label": "CTA Button Style"
+            }
+          }
+        },
+        "label": "CTA Block"
+      }
+    }
+  }
+}
