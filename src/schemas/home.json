@@ -54,6 +54,17 @@
         },
         "label": "CTA Block"
       }
+    },
+    "masthead_background_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": null,
+          "height": null
+        },
+        "thumbnails": [],
+        "label": "Masthead Background Image"
+      }
     }
   }
 }

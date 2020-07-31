@@ -4,12 +4,12 @@ import Layout from "../components/layout"
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const { page_title, masthead_heading, masthead_copy, cta_block } = allPrismicHome.edges[0].node.data
-  console.log([ page_title, masthead_heading, masthead_copy, cta_block ]);
+  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image } = allPrismicHome.edges[0].node.data
+  console.log([ page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image ]);
 
   return (
     <Layout title={ page_title.text }>
-      <section className="p-home__banner">
+      <section className="p-home__banner" style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
         <div className="l-container">
           <div className="p-home__content">
             <h1 className="el-h1 p-home__heading">{ masthead_heading.text }</h1>
@@ -17,13 +17,13 @@ const IndexPage = () => {
             <a href="/" className="el-btn el-btn--outline-white p-home__cta">{ cta_block[0].cta_copy.text }</a>
           </div>
         </div>
-        <div className="p-home__infoCard">
+        {/* <div className="p-home__infoCard">
           <div className="p-home__infoCardContent">
             <span className="p-home__infoCardTag">Branding</span>
             <h2 className="el-h3 p-home__infoCardHeading">Visual Identity</h2>
             <p>The colors were selected in order to convey sobriety so that the identity can be applied to the image.</p>
           </div>
-        </div>
+        </div> */}
       </section>
       <section className="p-home__provideSolutions">
         <div className="l-container">
@@ -32,7 +32,7 @@ const IndexPage = () => {
               <span>Provide Solutions</span>
               Digital web products for amazing and successful customers.
             </h2>
-            <a href="/" className="el-btn el-btn--outline p-home__provideSolutionsCTA">Order Now</a>
+            <a href="/" className="el-btn el-btn--outline-grey p-home__provideSolutionsCTA">Order Now</a>
           </header>
           <div className="p-home__provideSolutionsGrid l-grid l-grid--3">
             <div className="l-grid__col">
@@ -208,7 +208,7 @@ const IndexPage = () => {
               <span>Honored Awards</span>
               We work hard to achieve best awards
             </h2>
-            <a href="/" className="el-btn el-btn--outline o-block__btn">Our Video</a>
+            <a href="/" className="el-btn el-btn--outline-grey o-block__btn">Our Video</a>
           </div>
           <div className="p-home__videoAreaContent">
             <p>Drive awareness to increase engagement exposing new the ways to evolve our design language, digital literacy. Prethink talk to the slides, regroup your plate, so pivot. Diversify kpis work measure of success dogpile that our vision.</p>
@@ -251,6 +251,9 @@ const HOME_QUERY = graphql`
                 url
               }
               cta_button_style
+            }
+            masthead_background_image {
+              url
             }
           }
         }
