@@ -4,8 +4,7 @@ import Layout from "../components/layout"
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title } = allPrismicHome.edges[0].node.data
-  console.log([ page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image ]);
+  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image } = allPrismicHome.edges[0].node.data
 
   return (
     <Layout title={ page_title.text }>
@@ -13,7 +12,7 @@ const IndexPage = () => {
         <div className="l-container">
           <div className="p-home__content">
             <h1 className="el-h1 p-home__heading">{ masthead_heading.text }</h1>
-            <div className="p-home__mastheadCopy" dangerouslySetInnerHTML={{__html: masthead_copy.html}}></div>
+            <div className="l-content" dangerouslySetInnerHTML={{ __html: masthead_copy.html }}></div>
             <a href="/" className="el-btn el-btn--outline-white p-home__cta">{ cta_block[0].cta_copy.text }</a>
           </div>
         </div>
@@ -49,7 +48,7 @@ const IndexPage = () => {
       </section>
       <section className="p-home__creativity">
         <div className="l-container">
-          <figure className="p-home__creativityImage" style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+          <figure className="p-home__creativityImage" style={{ backgroundImage:`url(${ masthead_background_image.url })` }}>
             <div className="p-home__creativityImageInfo">
               <span className="p-home__creativityImageHeading el-h2">25 Years</span>
               <span className="p-home__creativityImageSubHeading el-small">Creativity For You</span>
@@ -57,13 +56,13 @@ const IndexPage = () => {
           </figure>
           <div className="p-home__creativityContent">
             <div className="o-block">
-              <h2 className="o-block__heading el-h2">We're an experienced and very creative branding agency</h2>
-              <p>Build on a culture of contribution and inclusion is a lot of persent cross-pollination, nor closing these latest prospects is like putting socks on an octopus, yet circle back. We need to make the new version clean and sexy critical mass.</p>
+              <h2 className="o-block__heading el-h2">{ author_section_heading.text }</h2>
+              <div className="l-content" dangerouslySetInnerHTML={{ __html: author_section_copy.html }}></div>
               <div className="p-home__creativityOwner">
-                <img src="/owner-signature.svg" alt="Owner Signature"/>
+                <img src={ author_sig.url } alt="Owner Signature"/>
                 <h3 className="p-home__creativityOwnerHeading el-h4">
-                  Michelle Geralldiny
-                  <span className="el-small">Art Director</span>
+                  { author.text }
+                  <span className="el-small">{ author_title.text }</span>
                 </h3>
               </div>
             </div>
@@ -262,6 +261,24 @@ const HOME_QUERY = graphql`
                 text
                 html
               }
+            }
+            author_section_heading {
+              text
+            }
+            author_section_copy {
+              html
+            }
+            author {
+              text
+            }
+            author_title {
+              text
+            }
+            author_sig {
+              url
+            }
+            author_section_image {
+              url
             }
           }
         }
