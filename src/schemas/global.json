@@ -1,0 +1,27 @@
+{
+  "Main": {
+    "section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Section Title"
+      }
+    },
+    "black_logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Black Logo"
+      }
+    },
+    "white_logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "White Logo"
+      }
+    }
+  }
+}

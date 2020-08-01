@@ -37,6 +37,7 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
         schemas: {
           home: require('./src/schemas/home.json'),
+          global: require('./src/schemas/global.json'),
         }
       }
     },
