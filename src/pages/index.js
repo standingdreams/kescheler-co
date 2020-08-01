@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image } = allPrismicHome.edges[0].node.data
+  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise } = allPrismicHome.edges[0].node.data
 
   return (
     <Layout title={ page_title.text }>
@@ -48,10 +48,10 @@ const IndexPage = () => {
       </section>
       <section className="p-home__creativity">
         <div className="l-container">
-          <figure className="p-home__creativityImage" style={{ backgroundImage:`url(${ masthead_background_image.url })` }}>
+          <figure className="p-home__creativityImage" style={{ backgroundImage:`url(${ author_section_image.url })` }}>
             <div className="p-home__creativityImageInfo">
-              <span className="p-home__creativityImageHeading el-h2">25 Years</span>
-              <span className="p-home__creativityImageSubHeading el-small">Creativity For You</span>
+              <span className="p-home__creativityImageHeading el-h2">{(new Date().getFullYear()) - 2013} Years</span>
+              <span className="p-home__creativityImageSubHeading el-small">{author_expertise.text}</span>
             </div>
           </figure>
           <div className="p-home__creativityContent">
@@ -279,6 +279,9 @@ const HOME_QUERY = graphql`
             }
             author_section_image {
               url
+            }
+            author_expertise {
+              text
             }
           }
         }

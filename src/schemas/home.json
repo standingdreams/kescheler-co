@@ -165,6 +165,13 @@
         "thumbnails": [],
         "label": "Author Signature"
       }
+    },
+    "author_expertise": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Author Expertise"
+      }
     }
   },
   "About Agency": {
