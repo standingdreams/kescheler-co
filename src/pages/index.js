@@ -7,8 +7,6 @@ const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
   const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns } = allPrismicHome.edges[0].node.data
 
-  console.log(testimonial_items);
-
   const testimonialSlider = useRef()
   const slickSettings = {
     adaptiveHeight: true,
@@ -101,14 +99,12 @@ const IndexPage = () => {
             <div className="l-content" dangerouslySetInnerHTML={{__html: about_section_copy.html}}></div>
           </div>
           <div className="p-home__aboutAgencyPoints">
-            <div className="p-home__aboutAgencyPointsItem">
-              <h3 className="p-home__aboutAgencyPointsItemHeading el-h3">Our Philosophy</h3>
-              <p>We want to empower the team with the right tools and sales are at an all-time clear water build better.</p>
-            </div>
-            <div className="p-home__aboutAgencyPointsItem">
-              <h3 className="p-home__aboutAgencyPointsItemHeading el-h3">Our Mission</h3>
-              <p>Going forward gain traction, nor ultimate measure of success so work.</p>
-            </div>
+            {about_columns.map((aboutItem, index) => (
+              <div className="p-home__aboutAgencyPointsItem" key={`aboutItem_${index}`}>
+                <h3 className="p-home__aboutAgencyPointsItemHeading el-h3">{ aboutItem.about_col_heading.text }</h3>
+                <p>{ aboutItem.about_column_copy.text }</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -120,7 +116,7 @@ const IndexPage = () => {
               {...slickSettings}
             >
               {testimonial_items.map((testimony, index) => (
-                <div>
+                <div key={`testimonial_${index}`}>
                   <div className="p-home__testimonialContentWrap">
                     <h3 className="p-home__testimonialContentReviewer h5">
                       { testimony.attestant.text }

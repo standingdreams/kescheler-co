@@ -153,7 +153,7 @@
       position: relative;
 
       &::before {
-        background-color: $color--yellow;
+        background-color: $color--pink;
         content: "";
         display: block;
         height: 2px;
@@ -255,7 +255,7 @@
       order: 1;
 
       span {
-        color: #acacac;
+        color: $color--pink;
         display: block;
       }
     }
@@ -340,7 +340,7 @@
       line-height: 1.75em;
 
       span {
-        color: #acacac;
+        color: $color--pink;
         display: block;
       }
     }
