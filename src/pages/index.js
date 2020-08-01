@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import Slider from "react-slick";
@@ -6,14 +6,8 @@ import Slider from "react-slick";
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
   const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_section_title, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns } = allPrismicHome.edges[0].node.data
-  const [ state, setNavState ] = useState({
-    imageNav: null,
-    testimonialNav: null,
-  })
 
-  const imageSlider = useRef()
   const testimonialSlider = useRef()
-
   const slickSettings = {
     arrows: false,
     dots: false,
@@ -23,21 +17,12 @@ const IndexPage = () => {
     slidesToScroll: 1
   }
 
-  useEffect(() => {
-    setNavState({
-      imageNav: imageSlider.current,
-      testimonialNav: testimonialSlider.current,
-    })
-  }, [])
-
-  const { imageNav, testimonialNav } = state
-
   const next = () => {
-    imageSlider.current.slickNext();
+    testimonialSlider.current.slickNext();
   }
 
   const previous = () => {
-    imageSlider.current.slickPrev();
+    testimonialSlider.current.slickPrev();
   }
 
   return (
@@ -128,7 +113,6 @@ const IndexPage = () => {
         <div className="l-container">
           <div className="p-home__testimonialContent">
             <Slider
-            asNavFor={ imageNav }
             ref={slider => (testimonialSlider.current = slider)}
               {...slickSettings}
             >
@@ -190,48 +174,9 @@ const IndexPage = () => {
             <span className="p-home__testimonialSliderNumber el-small">01/04</span>
           </div>
           <div className="p-home__testimonialImageWrap">
-          <Slider
-            asNavFor={ testimonialNav }
-            ref={slider => (imageSlider.current = slider)}
-            {...slickSettings}
-          >
-              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
-                <figure className="p-home__testimonialImage">
-                  <img src={ masthead_background_image.url } alt=""/>
-                </figure>
-                {/* <h3>1</h3> */}
-              </div>
-              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
-                <figure className="p-home__testimonialImage">
+            <figure className="p-home__testimonialImage">
               <img src={ masthead_background_image.url } alt=""/>
             </figure>
-                {/* <h3>2</h3> */}
-              </div>
-              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
-                <figure className="p-home__testimonialImage">
-              <img src={ masthead_background_image.url } alt=""/>
-            </figure>
-                {/* <h3>3</h3> */}
-              </div>
-              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
-                <figure className="p-home__testimonialImage">
-              <img src={ masthead_background_image.url } alt=""/>
-            </figure>
-                {/* <h3>4</h3> */}
-              </div>
-              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
-                <figure className="p-home__testimonialImage">
-              <img src={ masthead_background_image.url } alt=""/>
-            </figure>
-                {/* <h3>5</h3> */}
-              </div>
-              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
-                <figure className="p-home__testimonialImage">
-              <img src={ masthead_background_image.url } alt=""/>
-            </figure>
-                {/* <h3>6</h3> */}
-              </div>
-            </Slider>
             <nav className="p-home__testimonialPagination">
               <button onClick={previous} className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--left">Prev</button>
               <button onClick={next} className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--right">Next</button>
