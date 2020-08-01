@@ -345,6 +345,12 @@
       }
     }
 
+    &ContentCopy {
+      p {
+        @extend .el-h3;
+      }
+    }
+
     &ImageWrap {
       flex-shrink: 0;
       width: 100%;

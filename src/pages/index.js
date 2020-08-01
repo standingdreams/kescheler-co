@@ -5,10 +5,13 @@ import Slider from "react-slick";
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_section_title, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns } = allPrismicHome.edges[0].node.data
+  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns } = allPrismicHome.edges[0].node.data
+
+  console.log(testimonial_items);
 
   const testimonialSlider = useRef()
   const slickSettings = {
+    adaptiveHeight: true,
     arrows: false,
     dots: false,
     infinite: true,
@@ -116,60 +119,17 @@ const IndexPage = () => {
             ref={slider => (testimonialSlider.current = slider)}
               {...slickSettings}
             >
-              <div>
-                <div className="p-home__testimonialContentWrap">
-                  <h3 className="p-home__testimonialContentReviewer h5">
-                    Kescheler Nix-Powell
-                    <span className="el-small">Marketing Expert</span>
-                  </h3>
-                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+              {testimonial_items.map((testimony, index) => (
+                <div>
+                  <div className="p-home__testimonialContentWrap">
+                    <h3 className="p-home__testimonialContentReviewer h5">
+                      { testimony.attestant.text }
+                      <span className="el-small">{ testimony.attestant_title.text }</span>
+                    </h3>
+                    <div className="p-home__testimonialContentCopy l-content" dangerouslySetInnerHTML={{__html: testimony.testimonial_copy.html}}></div>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="p-home__testimonialContentWrap">
-                  <h3 className="p-home__testimonialContentReviewer h5">
-                    Cam Powell
-                    <span className="el-small">Marketing Expert</span>
-                  </h3>
-                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
-                </div>
-              </div>
-              <div>
-                <div className="p-home__testimonialContentWrap">
-                  <h3 className="p-home__testimonialContentReviewer h5">
-                    Brittney Rogers
-                    <span className="el-small">Marketing Expert</span>
-                  </h3>
-                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
-                </div>
-              </div>
-              <div>
-                <div className="p-home__testimonialContentWrap">
-                  <h3 className="p-home__testimonialContentReviewer h5">
-                    Douglas Rogers
-                    <span className="el-small">Marketing Expert</span>
-                  </h3>
-                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
-                </div>
-              </div>
-              <div>
-                <div className="p-home__testimonialContentWrap">
-                  <h3 className="p-home__testimonialContentReviewer h5">
-                    Brittney Rogers
-                    <span className="el-small">Marketing Expert</span>
-                  </h3>
-                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
-                </div>
-              </div>
-              <div>
-                <div className="p-home__testimonialContentWrap">
-                  <h3 className="p-home__testimonialContentReviewer h5">
-                    Douglas Rogers
-                    <span className="el-small">Marketing Expert</span>
-                  </h3>
-                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
-                </div>
-              </div>
+              ))}
             </Slider>
             <span className="p-home__testimonialSliderNumber el-small">01/04</span>
           </div>
