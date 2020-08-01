@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import Slider from "react-slick";
@@ -6,7 +6,14 @@ import Slider from "react-slick";
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
   const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_section_title, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns } = allPrismicHome.edges[0].node.data
-  const slider1 = useRef();
+  const [ state, setNavState ] = useState({
+    imageNav: null,
+    testimonialNav: null,
+  })
+
+  const imageSlider = useRef()
+  const testimonialSlider = useRef()
+
   const slickSettings = {
     arrows: false,
     dots: false,
@@ -16,12 +23,21 @@ const IndexPage = () => {
     slidesToScroll: 1
   }
 
+  useEffect(() => {
+    setNavState({
+      imageNav: imageSlider.current,
+      testimonialNav: testimonialSlider.current,
+    })
+  }, [])
+
+  const { imageNav, testimonialNav } = state
+
   const next = () => {
-    slider1.current.slickNext();
+    imageSlider.current.slickNext();
   }
 
   const previous = () => {
-    slider1.current.slickPrev();
+    imageSlider.current.slickPrev();
   }
 
   return (
@@ -111,16 +127,72 @@ const IndexPage = () => {
       <section className="p-home__testimonial l-section">
         <div className="l-container">
           <div className="p-home__testimonialContent">
-            <h3 className="p-home__testimonialContentReviewer h5">
-              Kescheler Nix-Powell
-              <span className="el-small">Marketing Expert</span>
-            </h3>
-            <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+            <Slider
+            asNavFor={ imageNav }
+            ref={slider => (testimonialSlider.current = slider)}
+              {...slickSettings}
+            >
+              <div>
+                <div className="p-home__testimonialContentWrap">
+                  <h3 className="p-home__testimonialContentReviewer h5">
+                    Kescheler Nix-Powell
+                    <span className="el-small">Marketing Expert</span>
+                  </h3>
+                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+                </div>
+              </div>
+              <div>
+                <div className="p-home__testimonialContentWrap">
+                  <h3 className="p-home__testimonialContentReviewer h5">
+                    Cam Powell
+                    <span className="el-small">Marketing Expert</span>
+                  </h3>
+                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+                </div>
+              </div>
+              <div>
+                <div className="p-home__testimonialContentWrap">
+                  <h3 className="p-home__testimonialContentReviewer h5">
+                    Brittney Rogers
+                    <span className="el-small">Marketing Expert</span>
+                  </h3>
+                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+                </div>
+              </div>
+              <div>
+                <div className="p-home__testimonialContentWrap">
+                  <h3 className="p-home__testimonialContentReviewer h5">
+                    Douglas Rogers
+                    <span className="el-small">Marketing Expert</span>
+                  </h3>
+                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+                </div>
+              </div>
+              <div>
+                <div className="p-home__testimonialContentWrap">
+                  <h3 className="p-home__testimonialContentReviewer h5">
+                    Brittney Rogers
+                    <span className="el-small">Marketing Expert</span>
+                  </h3>
+                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+                </div>
+              </div>
+              <div>
+                <div className="p-home__testimonialContentWrap">
+                  <h3 className="p-home__testimonialContentReviewer h5">
+                    Douglas Rogers
+                    <span className="el-small">Marketing Expert</span>
+                  </h3>
+                  <p className="el-h3">"Thinking outside the box we don't want to boil the ocean nor crank this out wheelhouse, or gain traction, nor going forward. Driving the initiative forward you better."</p>
+                </div>
+              </div>
+            </Slider>
             <span className="p-home__testimonialSliderNumber el-small">01/04</span>
           </div>
           <div className="p-home__testimonialImageWrap">
           <Slider
-            ref={slider => (slider1.current = slider)}
+            asNavFor={ testimonialNav }
+            ref={slider => (imageSlider.current = slider)}
             {...slickSettings}
           >
               <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
