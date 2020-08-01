@@ -352,6 +352,10 @@
       @include respond-to("small") {
         max-width: 848px;
         width: 45%;
+
+        .slick-list {
+          height: 450px;
+        }
       }
     }
 

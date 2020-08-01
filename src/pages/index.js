@@ -1,10 +1,28 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
+import Slider from "react-slick";
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise } = allPrismicHome.edges[0].node.data
+  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_section_title, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns } = allPrismicHome.edges[0].node.data
+  const slider1 = useRef();
+  const slickSettings = {
+    arrows: false,
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
+
+  const next = () => {
+    slider1.current.slickNext();
+  }
+
+  const previous = () => {
+    slider1.current.slickPrev();
+  }
 
   return (
     <Layout title={ page_title.text }>
@@ -73,10 +91,10 @@ const IndexPage = () => {
         <div className="l-container">
           <div className="o-block">
             <h2 className="o-block__heading el-h2">
-              <span>About agency</span>
-              We work with a spark creating the best quality products.
+              <span>{ about_section_title.text }</span>
+              { about_section_heading.text }
             </h2>
-            <p>On this journey rehydrate the team pre launch disband the squad but rehydrate as needed but we need to aspirationalise our offerings. Bench mark that's mint, well done but roll back strategy we need a recap by eod, cob or whatever comes first for products need full resourcing...</p>
+            <div className="l-content" dangerouslySetInnerHTML={{__html: about_section_copy.html}}></div>
           </div>
           <div className="p-home__aboutAgencyPoints">
             <div className="p-home__aboutAgencyPointsItem">
@@ -101,12 +119,50 @@ const IndexPage = () => {
             <span className="p-home__testimonialSliderNumber el-small">01/04</span>
           </div>
           <div className="p-home__testimonialImageWrap">
-            <figure className="p-home__testimonialImage">
+          <Slider
+            ref={slider => (slider1.current = slider)}
+            {...slickSettings}
+          >
+              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+                <figure className="p-home__testimonialImage">
+                  <img src={ masthead_background_image.url } alt=""/>
+                </figure>
+                {/* <h3>1</h3> */}
+              </div>
+              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+                <figure className="p-home__testimonialImage">
               <img src={ masthead_background_image.url } alt=""/>
             </figure>
+                {/* <h3>2</h3> */}
+              </div>
+              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+                <figure className="p-home__testimonialImage">
+              <img src={ masthead_background_image.url } alt=""/>
+            </figure>
+                {/* <h3>3</h3> */}
+              </div>
+              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+                <figure className="p-home__testimonialImage">
+              <img src={ masthead_background_image.url } alt=""/>
+            </figure>
+                {/* <h3>4</h3> */}
+              </div>
+              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+                <figure className="p-home__testimonialImage">
+              <img src={ masthead_background_image.url } alt=""/>
+            </figure>
+                {/* <h3>5</h3> */}
+              </div>
+              <div style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+                <figure className="p-home__testimonialImage">
+              <img src={ masthead_background_image.url } alt=""/>
+            </figure>
+                {/* <h3>6</h3> */}
+              </div>
+            </Slider>
             <nav className="p-home__testimonialPagination">
-              <button className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--left">Prev</button>
-              <button className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--right">Next</button>
+              <button onClick={previous} className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--left">Prev</button>
+              <button onClick={next} className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--right">Next</button>
             </nav>
           </div>
         </div>
@@ -115,23 +171,11 @@ const IndexPage = () => {
         <div className="l-container">
           <div className="o-block">
             <h2 className="o-block__heading el-h3">
-              <span>Services</span>
-              Wide range of design and development services provided with a creative and personal touch any project.
+              <span>{ services_section_title.text }</span>
+              { services_section_copy.text }
             </h2>
           </div>
-          <div className="p-home__servicesList">
-            <ul>
-              <li>Packaging</li>
-              <li>Social Media</li>
-              <li>Interactive Design</li>
-              <li>UX/UI</li>
-              <li>Branding</li>
-              <li>Creative Strategy</li>
-              <li>Web Design</li>
-              <li>Animation</li>
-              <li>Coding</li>
-            </ul>
-          </div>
+          <div className="p-home__servicesList" dangerouslySetInnerHTML={{__html: services_list.html}}></div>
         </div>
       </section>
       {/* <section className="p-home__creativeWorks l-section">
@@ -282,6 +326,43 @@ const HOME_QUERY = graphql`
             }
             author_expertise {
               text
+            }
+            about_section_title {
+              text
+            }
+            about_section_heading {
+              text
+            }
+            about_section_copy {
+              html
+            }
+            about_columns {
+              about_col_heading {
+                text
+              }
+              about_column_copy {
+                text
+              }
+            }
+            testimonial_items {
+              attestant {
+                text
+              }
+              attestant_title {
+                text
+              }
+              testimonial_copy {
+                html
+              }
+            }
+            services_section_title {
+              text
+            }
+            services_section_copy {
+              text
+            }
+            services_list {
+              html
             }
           }
         }
