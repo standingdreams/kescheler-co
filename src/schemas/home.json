@@ -229,6 +229,14 @@
         "label": "Section Title"
       }
     },
+    "testimonial_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Testimonial Image"
+      }
+    },
     "testimonial_items": {
       "type": "Group",
       "config": {

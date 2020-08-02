@@ -1,21 +1,25 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import Slider from "react-slick";
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const { page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns } = allPrismicHome.edges[0].node.data
+  const {
+    page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_image, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns
+  } = allPrismicHome.edges[0].node.data
 
+  const [currentSlide, setCurrentSlide] = useState(1)
   const testimonialSlider = useRef()
   const slickSettings = {
     adaptiveHeight: true,
     arrows: false,
     dots: false,
     infinite: true,
-    speed: 500,
+    slidesToScroll: 1,
     slidesToShow: 1,
-    slidesToScroll: 1
+    speed: 500,
+    afterChange: current => setCurrentSlide(current + 1),
   }
 
   const next = () => {
@@ -25,6 +29,8 @@ const IndexPage = () => {
   const previous = () => {
     testimonialSlider.current.slickPrev();
   }
+
+  const zeroPad = (num, places) => String(num).padStart(places, '0')
 
   return (
     <Layout title={ page_title.text }>
@@ -127,11 +133,11 @@ const IndexPage = () => {
                 </div>
               ))}
             </Slider>
-            <span className="p-home__testimonialSliderNumber el-small">01/04</span>
+            <span className="p-home__testimonialSliderNumber el-small">{`${zeroPad(currentSlide,2)}/${zeroPad(testimonial_items.length, 2)}`}</span>
           </div>
           <div className="p-home__testimonialImageWrap">
             <figure className="p-home__testimonialImage">
-              <img src={ masthead_background_image.url } alt=""/>
+              <img src={ testimonial_image.url } alt=""/>
             </figure>
             <nav className="p-home__testimonialPagination">
               <button onClick={previous} className="p-home__testimonialBtn el-btn__arrow el-btn__arrow--left">Prev</button>
@@ -316,6 +322,9 @@ const HOME_QUERY = graphql`
               about_column_copy {
                 text
               }
+            }
+            testimonial_image {
+              url
             }
             testimonial_items {
               attestant {
