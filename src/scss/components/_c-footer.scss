@@ -34,6 +34,10 @@
       display: flex;
       justify-content: space-between;
       padding-top: 15rem;
+
+      &--last {
+        justify-content: flex-end;
+      }
     }
 
     &Item {

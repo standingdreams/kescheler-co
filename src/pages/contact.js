@@ -25,7 +25,7 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
-      <section className="p-contact l-section l-section--bottom">
+      <section id="contactForm" className="p-contact l-section l-section--bottom">
         <div className="l-container">
           <figure className="p-contact__image" style={{ backgroundImage:`url(${ author_section_image.url })` }}></figure>
           <div className="p-contact__content">

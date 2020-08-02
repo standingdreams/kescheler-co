@@ -21,13 +21,7 @@ const Footer = props => {
             </div>
           </div>
         </div>
-        <div className="c-footer__block">
-          <nav className="c-footer__blockItem c-footer__nav">
-            <ul>
-              <li><a href="/">About</a></li>
-              <li><a href="/">Work</a></li>
-            </ul>
-          </nav>
+        <div className="c-footer__block c-footer__block--last">
           <div className="c-footer__blockItem c-footer__blockItem--3">
             <p className="c-footer__disclaimer">
               &copy; {new Date().getFullYear()}. Copyright Kescheler and Co.
