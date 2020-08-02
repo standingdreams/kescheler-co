@@ -22,6 +22,48 @@
         "thumbnails": [],
         "label": "White Logo"
       }
+    },
+    "quote_slogan": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Quote/Slogan"
+      }
+    },
+    "email_address": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Email Address"
+      }
+    },
+    "facebook_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Facebook URL"
+      }
+    },
+    "instagram_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Instagram URL"
+      }
+    },
+    "linkedin_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Linkedin URL"
+      }
+    },
+    "twitter_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Twitter URL"
+      }
     }
   }
 }

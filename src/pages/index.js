@@ -19,7 +19,7 @@ const IndexPage = () => {
     slidesToScroll: 1,
     slidesToShow: 1,
     speed: 500,
-    afterChange: current => setCurrentSlide(current + 1),
+    afterChange: current => setCurrentSlide(current),
   }
 
   const next = () => {

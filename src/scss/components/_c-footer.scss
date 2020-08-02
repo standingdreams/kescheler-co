@@ -11,6 +11,17 @@
     margin-top: 0;
   }
 
+  &__logo {
+    display: block;
+    width: 95px;
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+
   &__block {
     padding-top: 9rem;
 
@@ -58,6 +69,10 @@
   &__contactInfo {
     margin-top: 6.3rem;
     display: block;
+
+    .el-small {
+      color: $color--pink;
+    }
   }
 
   &__nav {
