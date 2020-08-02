@@ -9,17 +9,30 @@ const IndexPage = () => {
     page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_image, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns
   } = allPrismicHome.edges[0].node.data
 
-  const [currentSlide, setCurrentSlide] = useState(1)
+  const [currentSlide, setCurrentSlide] = useState(0)
   const testimonialSlider = useRef()
+
   const slickSettings = {
     adaptiveHeight: true,
     arrows: false,
-    dots: false,
-    infinite: true,
+    dots: true,
+    infinite: false,
     slidesToScroll: 1,
     slidesToShow: 1,
     speed: 500,
-    afterChange: current => setCurrentSlide(current),
+    appendDots: dots => {
+      dots.forEach(dot => {
+        if (dot.props.className === 'slick-active') {
+          setTimeout(() => {
+            setCurrentSlide(dots.indexOf(dot))
+          })
+        }
+      })
+
+      return (
+        <span className="p-home__testimonialSliderNumber el-small"></span>
+      )
+    },
   }
 
   const next = () => {
@@ -133,7 +146,7 @@ const IndexPage = () => {
                 </div>
               ))}
             </Slider>
-            <span className="p-home__testimonialSliderNumber el-small">{`${zeroPad(currentSlide,2)}/${zeroPad(testimonial_items.length, 2)}`}</span>
+            <span className="p-home__testimonialSliderNumber el-small">{`${zeroPad(currentSlide + 1,2)}/${zeroPad(testimonial_items.length, 2)}`}</span>
           </div>
           <div className="p-home__testimonialImageWrap">
             <figure className="p-home__testimonialImage">
