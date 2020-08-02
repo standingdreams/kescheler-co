@@ -1,16 +1,11 @@
-import React, { useRef, useState } from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
-import Slider from "react-slick";
 
 const IndexPage = () => {
   const { allPrismicHome } = useStaticQuery(HOME_QUERY)
   const {
-    page_title, masthead_heading, masthead_copy, cta_block, masthead_background_image, solutions_section_heading, solutions_cta_copy, solutions_section_columns, solutions_section_title,author_section_heading, author_section_copy, author, author_title, author_sig, author_section_image, author_expertise, services_section_title, services_section_copy, services_list, testimonial_image, testimonial_items, about_section_title, about_section_heading, about_section_copy, about_columns
-  } = allPrismicHome.edges[0].node.data
-
-  const [currentSlide, setCurrentSlide] = useState(1)
-  const testimonialSlider = useRef()
+    page_title, masthead_background_image, author_section_image } = allPrismicHome.edges[0].node.data
 
   return (
     <Layout title={ page_title.text }>
@@ -93,84 +88,8 @@ const HOME_QUERY = graphql`
             masthead_background_image {
               url
             }
-            solutions_section_title {
-              text
-            }
-            solutions_section_heading {
-              text
-            }
-            solutions_cta_copy {
-              text
-            }
-            solutions_section_columns {
-              column_heading {
-                text
-              }
-              column_copy {
-                text
-                html
-              }
-            }
-            author_section_heading {
-              text
-            }
-            author_section_copy {
-              html
-            }
-            author {
-              text
-            }
-            author_title {
-              text
-            }
-            author_sig {
-              url
-            }
             author_section_image {
               url
-            }
-            author_expertise {
-              text
-            }
-            about_section_title {
-              text
-            }
-            about_section_heading {
-              text
-            }
-            about_section_copy {
-              html
-            }
-            about_columns {
-              about_col_heading {
-                text
-              }
-              about_column_copy {
-                text
-              }
-            }
-            testimonial_image {
-              url
-            }
-            testimonial_items {
-              attestant {
-                text
-              }
-              attestant_title {
-                text
-              }
-              testimonial_copy {
-                html
-              }
-            }
-            services_section_title {
-              text
-            }
-            services_section_copy {
-              text
-            }
-            services_list {
-              html
             }
           }
         }
