@@ -1,0 +1,104 @@
+.c-banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $color--light-grey;
+  padding: 10rem 0 0;
+  position: relative;
+
+  &::after {
+    background-color: rgba($color--dusty-blue, 0.9);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  @include respond-to("small") {
+    padding: 15.2rem 0 0;
+  }
+
+  @include respond-to("medium") {
+    padding: 25.2rem 0;
+  }
+
+  .l-container {
+    max-width: 1140px;
+    position: relative;
+    z-index: 2;
+
+    @include respond-to("small") {
+      padding-bottom: 15.2rem;
+    }
+
+    @include respond-to("medium") {
+      padding-bottom: 0;
+    }
+  }
+
+  &__content {
+    color: $color--white;
+
+    @include respond-to("medium") {
+      width: 60%;
+    }
+  }
+
+  &__cta {
+    margin-top: 4.8rem;
+    display: inline-block;
+  }
+
+  &__infoCard {
+    color: $color--white;
+    margin-top: 8rem;
+    border-top: 15px solid $color--pink;
+    position: relative;
+    z-index: 2;
+
+    @include respond-to("small") {
+      margin-top: 0;
+    }
+
+    @include respond-to("medium") {
+      align-items: stretch;
+      border-top: 0;
+      display: flex;
+      justify-content: flex-end;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      width: 84.8rem;
+    }
+
+    &::after {
+      background-color: $color--pink;
+      content: "";
+      display: block;
+      flex-shrink: 0;
+      width: 390px;
+    }
+
+    &Content {
+      background-color: $color--heather-grey;
+      padding: 48px;
+    }
+
+    &CardTag {
+      color: #acacac;
+      font-size: 0.75em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    &CardHeading {
+      font-weight: $medium;
+    }
+  }
+}

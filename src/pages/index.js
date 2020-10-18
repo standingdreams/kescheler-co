@@ -47,12 +47,12 @@ const IndexPage = () => {
 
   return (
     <Layout title={ page_title.text }>
-      <section className="p-home__banner" style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+      <section className="c-banner c-banner--home" style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
         <div className="l-container">
-          <div className="p-home__content">
-            <h1 className="el-h1 p-home__heading">{ masthead_heading.text }</h1>
+          <div className="c-banner__content">
+            <h1 className="el-h1 c-banner__heading">{ masthead_heading.text }</h1>
             <div className="l-content" dangerouslySetInnerHTML={{ __html: masthead_copy.html }}></div>
-            <a href="/" className="el-btn el-btn--outline-white p-home__cta">{ cta_block[0].cta_copy.text }</a>
+            <a href="/" className="el-btn el-btn--outline-white c-banner__cta">{ cta_block[0].cta_copy.text }</a>
           </div>
         </div>
         {/* <div className="p-home__infoCard">
