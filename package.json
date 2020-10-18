@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "prettier": "2.0.5"
   },
   "keywords": [
@@ -33,8 +34,8 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS='-r esm' gatsby build",
+    "develop": "NODE_OPTIONS='-r esm' gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

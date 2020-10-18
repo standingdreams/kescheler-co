@@ -38,6 +38,7 @@ module.exports = {
         schemas: {
           home: require('./src/schemas/home.json'),
           global: require('./src/schemas/global.json'),
+          blogpost: require('./src/schemas/blogpost.json'),
         }
       }
     },

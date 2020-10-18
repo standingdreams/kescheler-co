@@ -1,0 +1,88 @@
+{
+  "Main": {
+    "post_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Post Title"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "basic_content_block": [],
+          "quote_block": [],
+          "image_block": []
+        },
+        "choices": {
+          "basic_content_block": {
+            "type": "Slice",
+            "fieldset": "Basic Content Block",
+            "description": "Content block for paragraphs and headings",
+            "icon": "add_circle_outline",
+            "display": "list",
+            "non-repeat": {
+              "content_block": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, embed, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Content Block"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "quote_block": {
+            "type": "Slice",
+            "fieldset": "Quote Block",
+            "description": "Content for pull quotes",
+            "icon": "format_quote",
+            "display": "list",
+            "non-repeat": {
+              "quote": {
+                "type": "Text",
+                "config": {
+                  "label": "Quote"
+                }
+              },
+              "author": {
+                "type": "Text",
+                "config": {
+                  "label": "Author"
+                }
+              },
+              "authors_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Author's Title"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_block": {
+            "type": "Slice",
+            "fieldset": "Image Block",
+            "description": "Block for Standout Image",
+            "icon": "image",
+            "display": "grid",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
