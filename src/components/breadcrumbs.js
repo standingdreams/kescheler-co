@@ -8,7 +8,6 @@ const breadcrumbs = () => {
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/">Blog</a></li>
-            <li><a href="/">Without Sidebar</a></li>
           </ul>
         </nav>
       </div>

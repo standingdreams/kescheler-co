@@ -10,13 +10,13 @@ import { graphql, useStaticQuery } from "gatsby"
 
 const Layout = props => {
   const children = props.children
-  const { title } = props
+  const { title, bodyClass } = props
   const { allPrismicGlobal } = useStaticQuery(GLOBAL_QUERY)
   const { black_logo, white_logo, facebook_url, instagram_url, twitter_url, linkedin_url, email_address, quote_slogan } = allPrismicGlobal.edges[0].node.data
 
   return (
     <>
-      <SEO title={ title } />
+      <SEO title={ title } bodyClass={ bodyClass } />
       <Header
         mastheadLogo={ black_logo.url }
       />
@@ -73,10 +73,12 @@ const GLOBAL_QUERY = graphql`
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  bodyClass: PropTypes.string,
   title: PropTypes.string,
 }
 
 Layout.defaultProps = {
+  bodyClass: ``,
   title: ``,
 }
 

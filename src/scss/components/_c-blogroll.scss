@@ -7,13 +7,14 @@
 
   &__post {
     @extend .o-block;
-    border-bottom: 1px solid $color--light-grey;
-    padding-bottom: 6.4rem;
-    margin-top: 6.4rem;
-    display: grid;
-    grid-template-columns: 105px 5% 65% 1fr;
-    grid-auto-rows: auto;
+
     align-items: start;
+    border-bottom: 1px solid $color--light-grey;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 105px 5% 65% 1fr;
+    margin-top: 6.4rem;
+    padding-bottom: 6.4rem;
 
     &:first-child {
       margin-top: 0;
@@ -25,13 +26,14 @@
   }
 
   &__postImage {
-    margin-bottom: 3.2rem;
     grid-column: 1 / span end;
+    margin-bottom: 3.2rem;
 
     img {
       display: block;
-      width: 100%;
       height: 200px;
+      object-fit: cover;
+      width: 100%;
 
       @include respond-to("small") {
         height: 450px;
@@ -50,20 +52,20 @@
     }
   }
 
-  date {
+  &__date {
     background-color: $color--dusty-blue;
     color: rgba(230, 232, 235, 0.75);
     display: block;
     flex-shrink: 0;
+    grid-column: 1 / span 1;
     letter-spacing: 1px;
     line-height: 1em;
     padding: 1.5rem 1rem;
     text-align: center;
     text-transform: uppercase;
-    grid-column: 1 / span 1;
 
     span {
-      color: #ffffff;
+      color: #fff;
       display: block;
       font-size: 30px;
       font-weight: $semibold;
@@ -84,9 +86,9 @@
   }
 
   &__postContent {
-    max-width: 75rem;
     grid-column: 1 / span end;
     margin-top: 30px;
+    max-width: 75rem;
 
     @include respond-to("small") {
       grid-column: 3;
@@ -95,17 +97,17 @@
 
   &__heading {
     font-weight: $semibold;
-    line-height: 1.333333333em;
     grid-column: 3;
+    line-height: 1.333333333em;
 
     a {
       color: $color--text;
     }
 
     span {
-      font-weight: $regular;
       color: #40434e;
       display: block;
+      font-weight: $regular;
     }
 
     @include respond-to("small") {
@@ -126,8 +128,8 @@
   &__author {
     align-items: center;
     display: flex;
-    justify-content: flex-start;
     font-size: 1em;
+    justify-content: flex-start;
   }
 
   &__authorImage {
@@ -141,9 +143,9 @@
   }
 
   &__postDetails {
-    margin-top: 20px;
     align-items: center;
     display: flex;
+    margin-top: 20px;
 
     span {
       margin-left: 3.2rem;
