@@ -1,9 +1,12 @@
 .c-masthead {
-  padding: 2.875rem 0;
-  background-color: $color--white;
-  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 20;
+
+  @include respond-to('medium') {
+    background-color: $color--white;
+    box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.2);
+    padding: 2.875rem 0;
+  }
 
   .l-container {
     max-width: 1820px;
@@ -20,14 +23,16 @@
   &__logo {
     background-color: $color--white;
     display: block;
-    padding: 20px 50px;
-    width: 200px;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    width: 120px;
     z-index: 21;
 
-    @include respond-to("small") {
-      left: 0;
-      position: absolute;
-      top: 0;
+    @include respond-to('medium') {
+      padding: 20px 50px;
+      width: 200px;
     }
 
     img {
