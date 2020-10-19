@@ -8,18 +8,17 @@ async function postsIntoPages({ graphql, actions }) {
         edges {
           node {
             id
-            slugs
+            uid
           }
         }
       }
     }
   `)
-  console.log(data.posts.edges);
 
   data.posts.edges.forEach(post => {
-    console.log(`Creating a page for http://localhost:8000/post/${post.node.slugs[0]}`);
+    console.log(`Creating a page for /post/${post.node.uid}`);
     actions.createPage({
-      path: `post/${post.node.slugs[0]}`,
+      path: `post/${post.node.uid}`,
       component: postTemplate,
       context: {
         id: post.node.id,

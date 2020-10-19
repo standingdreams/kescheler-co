@@ -47,7 +47,7 @@ const IndexPage = () => {
 
   return (
     <Layout title={ page_title.text }>
-      <section className="c-banner c-banner--home" style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+      <section className="c-banner c-banner--home" style={{backgroundImage: `url(${ masthead_background_image.url })`}}>
         <div className="l-container">
           <div className="c-banner__content">
             <h1 className="el-h1 c-banner__heading">{ masthead_heading.text }</h1>
@@ -55,10 +55,10 @@ const IndexPage = () => {
             <a href="/" className="el-btn el-btn--outline-white c-banner__cta">{ cta_block[0].cta_copy.text }</a>
           </div>
         </div>
-        {/* <div className="p-home__infoCard">
-          <div className="p-home__infoCardContent">
-            <span className="p-home__infoCardTag">Branding</span>
-            <h2 className="el-h3 p-home__infoCardHeading">Visual Identity</h2>
+        {/* <div className="c-banner__infoCard c-banner__infoCard--colorBlock">
+          <div className="c-banner__infoCardContent">
+            <span className="c-banner__infoCardTag">Branding</span>
+            <h2 className="el-h3 c-banner__infoCardHeading">Visual Identity</h2>
             <p>The colors were selected in order to convey sobriety so that the identity can be applied to the image.</p>
           </div>
         </div> */}
@@ -87,7 +87,7 @@ const IndexPage = () => {
       </section>
       <section className="p-home__creativity">
         <div className="l-container">
-          <figure className="p-home__creativityImage" style={{ backgroundImage:`url(${ author_section_image.url })` }}>
+          <figure className="p-home__creativityImage" style={{ backgroundImage: `url(${ author_section_image.url })` }}>
             <div className="p-home__creativityImageInfo">
               <span className="p-home__creativityImageHeading el-h2">{(new Date().getFullYear()) - 2013} Years</span>
               <span className="p-home__creativityImageSubHeading el-small">{author_expertise.text}</span>

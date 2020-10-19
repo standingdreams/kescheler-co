@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="22px" viewBox="0 0 24 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>comment</title>
+    <g id="Main-Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="24" font-weight="normal">
+        <g id="18_Single_Post_With_Sidebar" transform="translate(-1562.000000, -720.000000)" fill="#ACACAC">
+            <g id="Info" transform="translate(877.000000, 638.000000)">
+                <g id="Comments" transform="translate(685.000000, 78.000000)">
+                    <text id="comment">
+                        <tspan x="0" y="22"></tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

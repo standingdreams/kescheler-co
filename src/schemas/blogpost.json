@@ -7,6 +7,19 @@
         "label": "Post Title"
       }
     },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug"
+      }
+    },
+    "excerpt": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Excerpt"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -14,7 +27,8 @@
         "labels": {
           "basic_content_block": [],
           "quote_block": [],
-          "image_block": []
+          "image_block": [],
+          "list": []
         },
         "choices": {
           "basic_content_block": {

@@ -1,9 +1,9 @@
 .c-banner {
+  background-color: $color--light-grey;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: $color--light-grey;
-  padding: 10rem 0 0;
+  padding: 20rem 0 10rem;
   position: relative;
 
   &::after {
@@ -18,10 +18,6 @@
     top: 0;
     width: 100%;
     z-index: 1;
-  }
-
-  @include respond-to("small") {
-    padding: 15.2rem 0 0;
   }
 
   @include respond-to("medium") {
@@ -46,19 +42,37 @@
     color: $color--white;
 
     @include respond-to("medium") {
-      width: 60%;
+      .l-content {
+        width: 60%;
+      }
     }
   }
 
   &__cta {
-    margin-top: 4.8rem;
     display: inline-block;
+    margin-top: 4.8rem;
+  }
+
+  &__breadcrumbs {
+    color: $color--light-grey;
+    display: block;
+    font-size: 0.875em;
+    letter-spacing: 1px;
+    line-height: 22px;
+    margin-top: 3rem;
+    text-transform: uppercase;
+
+    &--current {
+      color: $color--white;
+      font-weight: $semibold;
+    }
   }
 
   &__infoCard {
+    background-color: $color--heather-grey;
+    border-top: 15px solid $color--pink;
     color: $color--white;
     margin-top: 8rem;
-    border-top: 15px solid $color--pink;
     position: relative;
     z-index: 2;
 
@@ -69,36 +83,102 @@
     @include respond-to("medium") {
       align-items: stretch;
       border-top: 0;
+      bottom: 0;
       display: flex;
       justify-content: flex-end;
-      bottom: 0;
       position: absolute;
       right: 0;
-      width: 84.8rem;
     }
 
-    &::after {
-      background-color: $color--pink;
-      content: "";
-      display: block;
-      flex-shrink: 0;
-      width: 390px;
+    &--colorBlock {
+      width: 84.8rem;
+
+      .c-banner__infoCardContent {
+        padding: 48px;
+      }
+
+      &::after {
+        background-color: $color--pink;
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 390px;
+      }
+    }
+
+    &--blogPost {
+      padding-bottom: 48px;
+
+      @include respond-to('medium') {
+        padding-bottom: 0;
+        padding-right: 48px;
+      }
+
+      .c-banner__infoCardContent {
+        padding: 48px 5% 0;
+
+        @include respond-to('medium') {
+          padding: 48px 0 48px 48px;
+        }
+      }
     }
 
     &Content {
-      background-color: $color--heather-grey;
-      padding: 48px;
+      p {
+        margin-top: 0;
+      }
+
+      &--social {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
     }
 
-    &CardTag {
+    &Tag {
       color: #acacac;
       font-size: 0.75em;
       letter-spacing: 1px;
+      margin-top: 1.5em;
       text-transform: uppercase;
     }
 
     &CardHeading {
       font-weight: $medium;
+    }
+  }
+
+  &__meta {
+    font-size: 0.875em;
+    padding-left: 30px;
+    position: relative;
+
+    &::before {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: 20px;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+    }
+
+    &--comments {
+      margin-right: 3.2rem;
+
+      &::before {
+        background-image: url("/icon-comment-solid.svg");
+      }
+    }
+
+    &--likes {
+      &::before {
+        background-image: url("/icon-heart-solid.svg");
+      }
     }
   }
 }
