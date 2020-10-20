@@ -1,12 +1,26 @@
 .c-mainNav {
-  display: none;
+  background-color: $color--light-grey;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  padding-top: 200px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: ease all 0.3s;
+  width: 100%;
+  z-index: 20;
 
-  @include respond-to("medium") {
-    display: block;
+  @include respond-to('medium') {
+    background-color: transparent;
+    padding-top: 0;
+    position: static;
   }
 
   ul {
-    @include respond-to("small") {
+    @include respond-to("medium") {
       align-items: center;
       display: flex;
       justify-content: flex-end;
@@ -14,7 +28,9 @@
   }
 
   li {
-    @include respond-to("small") {
+    display: block;
+
+    @include respond-to("medium") {
       margin-left: 3rem;
 
       &:first-child {
@@ -25,35 +41,50 @@
 
   a {
     color: $color--text;
-    font-size: 16px;
-    line-height: 1.75rem;
+    display: block;
+    font-size: 1.5em;
+    font-weight: $semibold;
     padding: 0.75em 0;
-    position: relative;
+    text-align: center;
+    text-transform: uppercase;
 
-    &::after {
-      background-color: transparent;
-      bottom: 0;
-      content: "";
-      display: block;
-      height: 2px;
-      left: 50%;
-      position: absolute;
-      transform: translateX(-50%);
-      width: 58px;
-    }
-
-    &:hover {
-      &::after {
-        background-color: #d189bc;
-      }
-    }
-
-    &:focus {
-      outline: none;
+    @include respond-to('medium') {
+      font-size: 1em;
+      font-weight: normal;
+      line-height: 1.75rem;
+      padding: 0.75em 0;
+      position: relative;
+      text-transform: none;
 
       &::after {
-        background-color: $color--outline;
+        background-color: transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 58px;
+      }
+
+      &:hover {
+        &::after {
+          background-color: #d189bc;
+        }
+      }
+
+      &:focus {
+        outline: none;
+
+        &::after {
+          background-color: $color--outline;
+        }
       }
     }
+  }
+
+  .navIsVisible & {
+    transform: translateX(0);
   }
 }

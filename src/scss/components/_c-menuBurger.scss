@@ -1,0 +1,80 @@
+.c-menuBurger {
+  appearance: none;
+  background: 0 0;
+  background-color: $color--white;
+  border: none;
+  box-shadow: -1px -2px 15px -1px rgba(0, 0, 0, 0.31);
+  cursor: pointer;
+  display: block;
+  height: 70px;
+  outline: none;
+  position: absolute;
+  right: 0;
+  top: 49px;
+  transition: ease all 450ms;
+  width: 70px;
+  z-index: 21;
+
+  @include respond-to('medium') {
+    display: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &__bar,
+  &__bars {
+    position: absolute;
+  }
+
+  &__bars {
+    height: 25px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.4s;
+    width: 40px;
+    will-change: transform;
+  }
+
+  &__bar {
+    background-color: $color--heather-grey;
+    display: block;
+    height: 3px;
+    transition: transform 0.4s, margin 0.4s, opacity 0.4s, background 0.3s;
+    width: 100%;
+
+    &--2 {
+      transform: translateY(10px);
+    }
+
+    &--3 {
+      transform: translateY(20px);
+    }
+  }
+
+  &:hover {
+    .c-menuBurger__bar {
+      background-color: $color--dusty-blue;
+    }
+  }
+
+  .navIsVisible & {
+    .c-menuBurger__bars {
+      transform: translate(-50%, 0);
+    }
+
+    .c-menuBurger__bar--1 {
+      transform: rotate(45deg);
+    }
+
+    .c-menuBurger__bar--2 {
+      opacity: 0;
+    }
+
+    .c-menuBurger__bar--3 {
+      transform: rotate(-45deg);
+    }
+  }
+}

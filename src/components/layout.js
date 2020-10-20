@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 import SEO from "../components/seo"
@@ -9,6 +9,7 @@ import "./../scss/styles.scss"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Layout = props => {
+  const [activeMobileNav, setActiveMobileNav] = useState(false)
   const children = props.children
   const { title, bodyClass } = props
   const { allPrismicGlobal } = useStaticQuery(GLOBAL_QUERY)
@@ -16,9 +17,11 @@ const Layout = props => {
 
   return (
     <>
-      <SEO title={ title } bodyClass={ bodyClass } />
+      <SEO title={ title } bodyClass={ `${activeMobileNav ? 'navIsVisible' : ''}${bodyClass ? ` ${bodyClass}` : ''}` } />
       <Header
         mastheadLogo={ black_logo.url }
+        clickHandler={setActiveMobileNav}
+        activeMobileNav={activeMobileNav}
       />
       <main>{children}</main>
       <Footer

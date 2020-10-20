@@ -25,14 +25,21 @@ body {
   a {
     text-decoration: none;
   }
+
+  &.navIsVisible {
+    @include respond-to('mediumest') {
+      overflow: hidden;
+      padding-right: 15px;
+    }
+  }
 }
 
 p,
 li {
   font-size: 1.125em;
   font-weight: 300;
-  margin: 1.2em 0 0;
   line-height: 1.888888889em;
+  margin: 1.2em 0 0;
 
   &:first-child {
     margin-top: 0;

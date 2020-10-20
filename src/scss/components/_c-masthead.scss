@@ -13,7 +13,7 @@
     position: relative;
     z-index: 20;
 
-    @include respond-to("small") {
+    @include respond-to("medium") {
       align-items: center;
       display: flex;
       justify-content: space-between;
@@ -28,7 +28,7 @@
     position: absolute;
     top: 0;
     width: 120px;
-    z-index: 21;
+    z-index: 19;
 
     @include respond-to('medium') {
       padding: 20px 50px;
