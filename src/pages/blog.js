@@ -7,6 +7,10 @@ import Breadcrumbs from "../components/breadcrumbs"
 import Pagination from '../components/Pagination';
 
 const Blog = ({ data, pageContext }) => {
+  const postsPerPage = data.prismicGlobal.data.posts_per_page
+  const postsCount = data.posts.totalCount
+  const totalPages = Math.ceil(postsCount / postsPerPage)
+
   return (
     <Layout title="Blog">
       <Breadcrumbs />
@@ -48,13 +52,15 @@ const Blog = ({ data, pageContext }) => {
             )
           })}
         </div>
-        <Pagination
-          base="/blog"
-          currentPage={pageContext.currentPage || 1}
-          postsPerPage={parseInt(process.env.GATSBY_PAGE_SIZE)}
-          skip={pageContext.skip}
-          postsCount={data.posts.totalCount}
-        />
+        {totalPages > 1 &&
+          <Pagination
+            base="/blog"
+            currentPage={pageContext.currentPage || 1}
+            postsPerPage={postsPerPage}
+            skip={pageContext.skip}
+            postsCount={postsCount}
+          />
+        }
       </section>
     </Layout>
   )
@@ -63,7 +69,7 @@ const Blog = ({ data, pageContext }) => {
 export default Blog
 
 export const query = graphql`
-  query($skip: Int! = 0, $postsPerPage: Int! = 1) {
+  query($skip: Int = 0, $postsPerPage: Int = 10) {
     posts: allPrismicBlogPosts(limit: $postsPerPage, skip: $skip) {
       totalCount
       edges {
@@ -96,6 +102,11 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    prismicGlobal {
+      data {
+        posts_per_page
       }
     }
   }

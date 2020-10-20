@@ -39,9 +39,14 @@ async function paginationForBlog({ graphql, actions }) {
           }
         }
       }
+      prismicGlobal {
+        data {
+          posts_per_page
+        }
+      }
     }
   `)
-  const postsPerPage = parseInt(process.env.GATSBY_PAGE_SIZE);
+  const postsPerPage = data.prismicGlobal.data.posts_per_page
   const totalPages = Math.ceil(data.posts.totalCount / postsPerPage);
   console.log(`There are ${data.posts.totalCount} posts. We have ${totalPages} posts per page.`);
   Array.from({ length: totalPages }).forEach((_, i) => {

@@ -64,6 +64,12 @@
         "allowTargetBlank": true,
         "label": "Twitter URL"
       }
+    },
+    "posts_per_page": {
+      "type": "Number",
+      "config": {
+        "label": "Posts Per Page"
+      }
     }
   }
 }
