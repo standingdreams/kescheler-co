@@ -1,28 +1,34 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
+import { PropTypes } from "prop-types"
+
 import Layout from "../components/layout"
 
-const IndexPage = () => {
-  const { allPrismicHome } = useStaticQuery(HOME_QUERY)
-  const {
-    page_title, masthead_background_image, author_section_image } = allPrismicHome.edges[0].node.data
+const ContactPage = ({ data }) => {
+  const { page_title, masthead_background_image, author_section_image } = data.allPrismicHome.edges[0].node.data
 
   return (
-    <Layout title={ page_title.text } bodyClass="contact">
-      <section className="c-banner" style={{backgroundImage: `url(${ masthead_background_image.url })`}}>
+    <Layout title={page_title.text} bodyClass="contact">
+      <section className="c-banner" style={{ backgroundImage: `url(${masthead_background_image.url})` }}>
         <div className="l-container">
           <div className="c-banner__content">
             <h1 className="el-h1 c-banner__heading">Lets Get Started</h1>
             <div className="l-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt aut eos fugiat facilis autem architecto nulla alias, officia impedit voluptatibus explicabo id odit, unde omnis ut odio magnam dignissimos doloremque.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt aut eos fugiat facilis autem
+                architecto nulla alias, officia impedit voluptatibus explicabo id odit, unde omnis ut odio magnam
+                dignissimos doloremque.
+              </p>
             </div>
-            <a href="#contactForm" className="el-btn el-btn--outline-white c-banner__cta">Contact Us</a>
+            <a href="#contactForm" className="el-btn el-btn--outline-white c-banner__cta">
+              Contact Us
+            </a>
           </div>
         </div>
       </section>
       <section id="contactForm" className="p-contact l-section l-section--bottom">
         <div className="l-container">
-          <figure className="p-contact__image" style={{ backgroundImage: `url(${ author_section_image.url })` }}></figure>
+          <figure className="p-contact__image" style={{ backgroundImage: `url(${author_section_image.url})` }} />
           <div className="p-contact__content">
             <div className="o-block">
               <h2 className="o-block__heading el-h2">Curabitur lorem pharetra nec metus nibh consequat ex.</h2>
@@ -46,7 +52,7 @@ const IndexPage = () => {
                   </div>
                   <div className="p-contact__formItem p-contact__formItem--message">
                     <label htmlFor="message">Message</label>
-                    <textarea className="p-contact__formTextarea" name="message" id="message"></textarea>
+                    <textarea className="p-contact__formTextarea" name="message" id="message" />
                   </div>
                 </div>
               </form>
@@ -58,8 +64,14 @@ const IndexPage = () => {
   )
 }
 
-const HOME_QUERY = graphql`
-  {
+ContactPage.propTypes = {
+  data: PropTypes.object,
+}
+
+export default ContactPage
+
+export const query = graphql`
+  query {
     allPrismicHome {
       edges {
         node {
@@ -97,5 +109,3 @@ const HOME_QUERY = graphql`
     }
   }
 `
-
-export default IndexPage
