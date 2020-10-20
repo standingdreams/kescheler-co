@@ -74,6 +74,7 @@
         width: 58px;
       }
 
+      &.current,
       &:hover {
         &::after {
           background-color: #d189bc;
