@@ -4,8 +4,9 @@ import dayjs from 'dayjs'
 
 import Layout from "../components/layout"
 import Breadcrumbs from "../components/breadcrumbs"
+import Pagination from '../components/Pagination';
 
-const Blogroll = ({ data }) => {
+const Blog = ({ data, pageContext }) => {
   return (
     <Layout title="Blog">
       <Breadcrumbs />
@@ -47,16 +48,24 @@ const Blogroll = ({ data }) => {
             )
           })}
         </div>
+        <Pagination
+          base="/blog"
+          currentPage={pageContext.currentPage || 1}
+          postsPerPage={parseInt(process.env.GATSBY_PAGE_SIZE)}
+          skip={pageContext.skip}
+          postsCount={data.posts.totalCount}
+        />
       </section>
     </Layout>
   )
 }
 
-export default Blogroll
+export default Blog
 
 export const query = graphql`
-  {
-    posts: allPrismicBlogPosts {
+  query($skip: Int! = 0, $postsPerPage: Int! = 1) {
+    posts: allPrismicBlogPosts(limit: $postsPerPage, skip: $skip) {
+      totalCount
       edges {
         node {
           id

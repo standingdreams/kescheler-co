@@ -27,6 +27,42 @@ async function postsIntoPages({ graphql, actions }) {
   });
 }
 
+async function paginationForBlog({ graphql, actions }) {
+  const { data } = await graphql(`
+    query {
+      posts: allPrismicBlogPosts {
+        totalCount
+        edges {
+          node {
+            id
+            uid
+          }
+        }
+      }
+    }
+  `)
+  const postsPerPage = parseInt(process.env.GATSBY_PAGE_SIZE);
+  const totalPages = Math.ceil(data.posts.totalCount / postsPerPage);
+  console.log(`There are ${data.posts.totalCount} posts. We have ${totalPages} posts per page.`);
+  Array.from({ length: totalPages }).forEach((_, i) => {
+    console.log(`Creating page ${i}`);
+    actions.createPage({
+      path: `/blog/${i + 1}`,
+      component: path.resolve('./src/pages/blog.js'),
+      context: {
+        currentPage: i + 1,
+        totalPages,
+        postsPerPage,
+        skip: i * postsPerPage,
+        postsCount: data.posts.totalCount,
+      },
+    })
+  })
+}
+
 export async function createPages(params) {
-  await postsIntoPages(params);
+  await Promise.all([
+    postsIntoPages(params),
+    paginationForBlog(params),
+  ]);
 }
