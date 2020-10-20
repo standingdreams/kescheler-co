@@ -17,6 +17,7 @@
     background-color: transparent;
     padding-top: 0;
     position: static;
+    transform: translateX(0);
   }
 
   ul {
@@ -47,6 +48,11 @@
     padding: 0.75em 0;
     text-align: center;
     text-transform: uppercase;
+
+    &.current {
+      color: $color--dusty-blue;
+      font-weight: $semibold;
+    }
 
     @include respond-to('medium') {
       font-size: 1em;

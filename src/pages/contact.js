@@ -8,21 +8,21 @@ const IndexPage = () => {
     page_title, masthead_background_image, author_section_image } = allPrismicHome.edges[0].node.data
 
   return (
-    <Layout title={ page_title.text }>
-      <section className="p-home__banner" style={{backgroundImage:`url(${ masthead_background_image.url })`}}>
+    <Layout title={ page_title.text } bodyClass="contact">
+      <section className="c-banner" style={{backgroundImage: `url(${ masthead_background_image.url })`}}>
         <div className="l-container">
-          <div className="p-home__content">
-            <h1 className="el-h1 p-home__heading">Lets Get Started</h1>
+          <div className="c-banner__content">
+            <h1 className="el-h1 c-banner__heading">Lets Get Started</h1>
             <div className="l-content">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt aut eos fugiat facilis autem architecto nulla alias, officia impedit voluptatibus explicabo id odit, unde omnis ut odio magnam dignissimos doloremque.</p>
             </div>
-            <a href="#contactForm" className="el-btn el-btn--outline-white p-home__cta">Contact Us</a>
+            <a href="#contactForm" className="el-btn el-btn--outline-white c-banner__cta">Contact Us</a>
           </div>
         </div>
       </section>
       <section id="contactForm" className="p-contact l-section l-section--bottom">
         <div className="l-container">
-          <figure className="p-contact__image" style={{ backgroundImage:`url(${ author_section_image.url })` }}></figure>
+          <figure className="p-contact__image" style={{ backgroundImage: `url(${ author_section_image.url })` }}></figure>
           <div className="p-contact__content">
             <div className="o-block">
               <h2 className="o-block__heading el-h2">Curabitur lorem pharetra nec metus nibh consequat ex.</h2>

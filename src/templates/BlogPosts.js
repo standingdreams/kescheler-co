@@ -10,7 +10,7 @@ export default function SinglePostPage({ data }) {
   const { post_title, body } = content
 
   return (
-    <Layout title={ post_title[0].text }>
+    <Layout title={ post_title[0].text } bodyClass="home">
       <section className="c-banner c-banner--home">
         <div className="l-container">
           <div className="c-banner__content">

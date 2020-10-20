@@ -12,7 +12,7 @@ const Blog = ({ data, pageContext }) => {
   const totalPages = Math.ceil(postsCount / postsPerPage)
 
   return (
-    <Layout title="Blog">
+    <Layout title="Blog" bodyClass="blog">
       <Breadcrumbs />
       <section className="c-blogroll">
         <div className="l-container c-blogroll__grid">

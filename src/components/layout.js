@@ -22,6 +22,7 @@ const Layout = props => {
         mastheadLogo={ black_logo.url }
         clickHandler={setActiveMobileNav}
         activeMobileNav={activeMobileNav}
+        currentPage={bodyClass}
       />
       <main>{children}</main>
       <Footer

@@ -46,7 +46,7 @@ const IndexPage = () => {
   const zeroPad = (num, places) => String(num).padStart(places, '0')
 
   return (
-    <Layout title={ page_title.text }>
+    <Layout title={ page_title.text } bodyClass="home">
       <section className="c-banner c-banner--home" style={{backgroundImage: `url(${ masthead_background_image.url })`}}>
         <div className="l-container">
           <div className="c-banner__content">
