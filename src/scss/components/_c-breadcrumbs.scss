@@ -1,5 +1,5 @@
 .c-breadcrumbs {
-  background-color: $color--light-grey;
+  background-color: rgba($color--dusty-blue, 0.9);
   padding: 6.4rem 0;
 
   ul {
@@ -12,11 +12,17 @@
     }
   }
 
+  a {
+    color: $color--white;
+    text-transform: uppercase;
+  }
+
   li {
     font-size: 14px;
     margin-left: 0.75rem;
 
     &::before {
+      color: $color--pink;
       content: "/";
       display: inline-block;
       margin-right: 0.75rem;
@@ -33,10 +39,5 @@
     &:last-child a {
       font-weight: $semibold;
     }
-  }
-
-  a {
-    color: $color--heather-grey;
-    text-transform: uppercase;
   }
 }
