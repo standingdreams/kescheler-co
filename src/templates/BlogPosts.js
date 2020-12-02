@@ -3,10 +3,11 @@ import { graphql } from "gatsby"
 import dayjs from "dayjs"
 import { RichText } from "prismic-reactjs"
 import { PropTypes } from "prop-types"
+import { withPreview } from "gatsby-source-prismic"
 
 import Layout from "../components/layout"
 
-export default function SinglePostPage({ data }) {
+const SinglePostPage = ({ data }) => {
   const { content, first_publication_date } = data.post
   const { post_title, body } = content
 
@@ -94,6 +95,8 @@ export default function SinglePostPage({ data }) {
     </Layout>
   )
 }
+
+export default withPreview(SinglePostPage)
 
 SinglePostPage.propTypes = {
   data: PropTypes.object,

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { graphql } from "gatsby"
 import { PropTypes } from "prop-types"
 import Slider from "react-slick"
+import { withPreview } from "gatsby-source-prismic"
 
 import Layout from "../components/layout"
 
@@ -212,7 +213,7 @@ IndexPage.propTypes = {
   data: PropTypes.object,
 }
 
-export default IndexPage
+export default withPreview(IndexPage)
 
 export const query = graphql`
   query {
