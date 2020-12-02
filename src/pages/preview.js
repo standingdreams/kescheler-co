@@ -1,7 +1,7 @@
 import * as React from "react"
 import { withPreviewResolver } from "gatsby-source-prismic"
 
-import { Layout } from "../components/Layout"
+import Layout from "../components/layout"
 
 const PreviewPage = ({ isPreview, isLoading }) => {
   if (isPreview === false) return "Not a preview!"
