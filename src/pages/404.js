@@ -5,6 +5,7 @@ import BlogPosts from "../templates/BlogPosts"
 import Home from "./index"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 // import { Layout } from '../components/Layout'
 
 const NotFoundPage = () => (
